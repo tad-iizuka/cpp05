@@ -6,22 +6,108 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/05 22:15:54 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/07 10:30:49 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <cstdlib>
+#include <climits>
+
+void	check(std::string name, int grade);
+void	checkInc(std::string name, int grade);
+void	checkDec(std::string name, int grade);
 
 int main( void )
 {
+	check("Kelly", 1);
+	check("Kelly", 150);
+	check("Kelly", 0);
+	check("Kelly", -1);
+	check("Kelly", INT_MAX);
+	checkInc("Kelly", 2);
+	checkInc("Kelly", 1);
+	checkDec("Kelly", 149);
+	checkDec("Kelly", 150);
+	return (EXIT_SUCCESS);
+}
+
+void	check(std::string name, int grade)
+{
 	try {
-		Bureaucrat a( "Kelly", 0 );
+		Bureaucrat a( name, grade );
 		std::cout << a << std::endl;
 	}
-	catch (std::exception& e)
+	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout
+			<< C_R
+			<< "exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "]"
+			<< C_CLR
+			<< std::endl;
 	}
-	return (EXIT_SUCCESS);
+	catch (Bureaucrat::GradeTooLowException& e)
+	{
+		std::cout
+			<< C_R
+			<< "exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "]"
+			<< C_CLR
+			<< std::endl;
+	}
+}
+
+void	checkInc(std::string name, int grade)
+{
+	try {
+		Bureaucrat a( name, grade );
+		a.incGrade();
+		std::cout << a << std::endl;
+	}
+	catch (Bureaucrat::GradeTooHighException& e)
+	{
+		std::cout
+			<< C_R
+			<< "exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "]"
+			<< C_CLR
+			<< std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
+	{
+		std::cout
+			<< C_R
+			<< "exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "]"
+			<< C_CLR
+			<< std::endl;
+	}
+}
+
+void	checkDec(std::string name, int grade)
+{
+	try {
+		Bureaucrat a( name, grade );
+		a.decGrade();
+		std::cout << a << std::endl;
+	}
+	catch (Bureaucrat::GradeTooHighException& e)
+	{
+		std::cout
+			<< C_R
+			<< "exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "]"
+			<< C_CLR
+			<< std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
+	{
+		std::cout
+			<< C_R
+			<< "exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "]"
+			<< C_CLR
+			<< std::endl;
+	}
 }
