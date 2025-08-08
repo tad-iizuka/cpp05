@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/08 21:16:44 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/08 21:18:35 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	GradeTooHighExceptionError( Bureaucrat::GradeTooHighException& e )
 {
 		std::cout
 			<< C_R
-			<< "exception occurred: name [" << e.what() << "] grade ["
-			<< e.grade() << "]"
+			<< "Exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "] is too high."
 			<< C_CLR
 			<< std::endl;
 }
@@ -98,8 +98,8 @@ void	GradeTooLowExceptionError( Bureaucrat::GradeTooLowException& e )
 {
 		std::cout
 			<< C_R
-			<< "exception occurred: name [" << e.what() << "] grade ["
-			<< e.grade() << "]"
+			<< "Exception occurred: name [" << e.what() << "] grade ["
+			<< e.grade() << "] is too low."
 			<< C_CLR
 			<< std::endl;
 }
