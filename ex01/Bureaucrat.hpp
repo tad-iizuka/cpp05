@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:25:23 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/08 20:59:48 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/10 02:41:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Bureaucrat
 		void 							setGrade( int grade );
 		void							incGrade( void );
 		void							decGrade( void );
+		void							signForm( void );
 
 		Bureaucrat( void );
 		Bureaucrat( const std::string& name, int grade );

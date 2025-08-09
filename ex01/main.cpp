@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/09 13:25:00 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/10 02:30:50 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int main( void )
 void	check( std::string name, int grade )
 {
 	try {
-		Form a( name, grade );
+		// Form a( name, grade );
+		Bureaucrat a( name, grade );
 		std::cout << a << std::endl;
 	}
 	catch (Form::GradeTooHighException& e)

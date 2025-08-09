@@ -6,11 +6,12 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/08 21:02:46 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/10 02:44:20 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // getter / setter
 
@@ -38,6 +39,13 @@ void	Bureaucrat::decGrade( void ) {
 		throw GradeTooLowException(_name, _grade + 1);
 	else
 		_grade++;
+}
+
+void	Bureaucrat::signForm( void )
+{
+	Form *f = new Form("form", 1, 1);
+	f->beSigned(this);
+	delete f;
 }
 
 // Orthodox Canonical Form
