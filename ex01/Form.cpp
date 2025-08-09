@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 06:23:56 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/10 06:44:54 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ int Form::GradeTooLowException::exec() const {
 
 std::ostream& operator<<( std::ostream& os, const Form& rhs )
 {
-	os << "Form name: [" << rhs.getName() << "]" << std::endl
-		<< " required sign in level: [" << rhs.getSign() << "]" << std::endl
-		<< " required exec in level: [" << rhs.getExec() << "]";
+	os << "Form name [" << rhs.getName() << "]"
+		<< " sign level [" << rhs.getSign() << "]"
+		<< " exec level [" << rhs.getExec() << "]";
 	return os;
 }

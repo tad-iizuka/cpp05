@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 06:26:26 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/10 06:44:36 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	GradeTooLowExceptionError( Form::GradeTooLowException& e );
 
 int main( void )
 {
-	checkForm("Kelly", 1);
-	checkForm("Kelly", 150);
-	checkForm("Kelly", 0);
-	checkForm("Kelly", -1);
-	checkForm("Kelly", INT_MAX);
+	checkForm("default", 1);
+	checkForm("default", 150);
+	checkForm("default", 0);
+	checkForm("default", -1);
+	checkForm("default", INT_MAX);
 	signIn("default", 1);
 	// checkInc("Kelly", 2);
 	// checkInc("Kelly", 1);
@@ -112,9 +112,9 @@ void	GradeTooHighExceptionError( Form::GradeTooHighException& e )
 			<< C_R
 			<< "Exception occurred: Level Too High." << std::endl
 			<< C_W
-			<< " Form name: [" << e.what() << "]" << std::endl
-			<< " sign level: [" << e.sign() << "]" << std::endl
-			<< " exec level: [" << e.exec() << "]"
+			<< "Form name [" << e.what() << "]"
+			<< " sign level [" << e.sign() << "]"
+			<< " exec level [" << e.exec() << "]"
 			<< C_CLR
 			<< std::endl;
 }
@@ -125,9 +125,9 @@ void	GradeTooLowExceptionError( Form::GradeTooLowException& e )
 			<< C_R
 			<< "Exception occurred: Level Too Low." << std::endl
 			<< C_W
-			<< " Form name: [" << e.what() << "]" << std::endl
-			<< " sign level: [" << e.sign() << "]" << std::endl
-			<< " exec level: [" << e.exec() << "]"
+			<< "Form name [" << e.what() << "]"
+			<< " sign level [" << e.sign() << "]"
+			<< " exec level [" << e.exec() << "]"
 			<< C_CLR
 			<< std::endl;
 }
