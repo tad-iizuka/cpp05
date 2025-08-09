@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:26:56 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/08 21:35:02 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/09 09:04:45 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 
 #include "Bureaucrat.hpp"
 
-class Form
+class Form : public Bureaucrat
 {
 
 	public:
+
+		Form( void );
+		Form( const std::string& name, int grade );
+		~Form ( void );
 
 	private:
 		const std::string _name;
