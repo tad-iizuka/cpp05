@@ -6,19 +6,19 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/08 21:18:35 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/09 13:25:00 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <cstdlib>
 #include <climits>
 
 void	check( std::string name, int grade );
-void	checkInc( std::string name, int grade );
-void	checkDec( std::string name, int grade );
-void	GradeTooHighExceptionError( Bureaucrat::GradeTooHighException& e );
-void	GradeTooLowExceptionError( Bureaucrat::GradeTooLowException& e );
+// void	checkInc( std::string name, int grade );
+// void	checkDec( std::string name, int grade );
+void	GradeTooHighExceptionError( Form::GradeTooHighException& e );
+void	GradeTooLowExceptionError( Form::GradeTooLowException& e );
 
 int main( void )
 {
@@ -27,64 +27,64 @@ int main( void )
 	check("Kelly", 0);
 	check("Kelly", -1);
 	check("Kelly", INT_MAX);
-	checkInc("Kelly", 2);
-	checkInc("Kelly", 1);
-	checkDec("Kelly", 149);
-	checkDec("Kelly", 150);
+	// checkInc("Kelly", 2);
+	// checkInc("Kelly", 1);
+	// checkDec("Kelly", 149);
+	// checkDec("Kelly", 150);
 	return (EXIT_SUCCESS);
 }
 
 void	check( std::string name, int grade )
 {
 	try {
-		Bureaucrat a( name, grade );
+		Form a( name, grade );
 		std::cout << a << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
+	catch (Form::GradeTooHighException& e)
 	{
 		GradeTooHighExceptionError(e);
 	}
-	catch (Bureaucrat::GradeTooLowException& e)
+	catch (Form::GradeTooLowException& e)
 	{
 		GradeTooLowExceptionError(e);
 	}
 }
 
-void	checkInc( std::string name, int grade )
-{
-	try {
-		Bureaucrat a( name, grade );
-		a.incGrade();
-		std::cout << a << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		GradeTooHighExceptionError(e);
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		GradeTooLowExceptionError(e);
-	}
-}
+// void	checkInc( std::string name, int grade )
+// {
+// 	try {
+// 		Form a( name, grade );
+// 		a.incGrade();
+// 		std::cout << a << std::endl;
+// 	}
+// 	catch (Form::GradeTooHighException& e)
+// 	{
+// 		GradeTooHighExceptionError(e);
+// 	}
+// 	catch (Form::GradeTooLowException& e)
+// 	{
+// 		GradeTooLowExceptionError(e);
+// 	}
+// }
 
-void	checkDec( std::string name, int grade )
-{
-	try {
-		Bureaucrat a( name, grade );
-		a.decGrade();
-		std::cout << a << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		GradeTooHighExceptionError(e);
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		GradeTooLowExceptionError(e);
-	}
-}
+// void	checkDec( std::string name, int grade )
+// {
+// 	try {
+// 		Form a( name, grade );
+// 		a.decGrade();
+// 		std::cout << a << std::endl;
+// 	}
+// 	catch (Form::GradeTooHighException& e)
+// 	{
+// 		GradeTooHighExceptionError(e);
+// 	}
+// 	catch (Form::GradeTooLowException& e)
+// 	{
+// 		GradeTooLowExceptionError(e);
+// 	}
+// }
 
-void	GradeTooHighExceptionError( Bureaucrat::GradeTooHighException& e )
+void	GradeTooHighExceptionError( Form::GradeTooHighException& e )
 {
 		std::cout
 			<< C_R
@@ -94,7 +94,7 @@ void	GradeTooHighExceptionError( Bureaucrat::GradeTooHighException& e )
 			<< std::endl;
 }
 
-void	GradeTooLowExceptionError( Bureaucrat::GradeTooLowException& e )
+void	GradeTooLowExceptionError( Form::GradeTooLowException& e )
 {
 		std::cout
 			<< C_R
