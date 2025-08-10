@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/08 21:18:35 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/10 17:29:02 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 void	check( std::string name, int grade );
 void	checkInc( std::string name, int grade );
 void	checkDec( std::string name, int grade );
-void	GradeTooHighExceptionError( Bureaucrat::GradeTooHighException& e );
-void	GradeTooLowExceptionError( Bureaucrat::GradeTooLowException& e );
 
 int main( void )
 {
@@ -42,11 +40,11 @@ void	check( std::string name, int grade )
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		GradeTooHighExceptionError(e);
+		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]", "[" + Log::itoa(grade) + "]");
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		GradeTooLowExceptionError(e);
+		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]", "[" + Log::itoa(grade) + "]");
 	}
 }
 
@@ -59,11 +57,11 @@ void	checkInc( std::string name, int grade )
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		GradeTooHighExceptionError(e);
+		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]", "[" + Log::itoa(grade) + "]");
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		GradeTooLowExceptionError(e);
+		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]", "[" + Log::itoa(grade) + "]");
 	}
 }
 
@@ -76,30 +74,10 @@ void	checkDec( std::string name, int grade )
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		GradeTooHighExceptionError(e);
+		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]", "[" + Log::itoa(grade) + "]");
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		GradeTooLowExceptionError(e);
+		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]", "[" + Log::itoa(grade) + "]");
 	}
-}
-
-void	GradeTooHighExceptionError( Bureaucrat::GradeTooHighException& e )
-{
-		std::cout
-			<< C_R
-			<< "Exception occurred: name [" << e.what() << "] grade ["
-			<< e.grade() << "] is too high."
-			<< C_CLR
-			<< std::endl;
-}
-
-void	GradeTooLowExceptionError( Bureaucrat::GradeTooLowException& e )
-{
-		std::cout
-			<< C_R
-			<< "Exception occurred: name [" << e.what() << "] grade ["
-			<< e.grade() << "] is too low."
-			<< C_CLR
-			<< std::endl;
 }
