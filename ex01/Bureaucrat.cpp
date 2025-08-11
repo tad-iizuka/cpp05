@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 17:35:56 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/11 21:31:44 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ Bureaucrat::Bureaucrat( void ) : _name("none"), _grade(0) {
 }
 
 Bureaucrat::Bureaucrat( const std::string& name, int grade ) : _name(name) {
-	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 	if (grade < 1)
 		throw GradeTooHighException(name, grade);
 	else if (grade > 150)
 		throw GradeTooLowException(name, grade);
 	_grade = grade;
+	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 }
 
 Bureaucrat::~Bureaucrat ( void ) {

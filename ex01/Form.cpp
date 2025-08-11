@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 17:36:37 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/11 21:31:57 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	Form::beSigned(Bureaucrat* param)
 
 Form::Form( const std::string name, int sign, int exec ) : 
 	_name(name), _sign(sign), _exec(exec) {
-	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 	if (_sign < 1)
 		throw GradeTooHighException(name, _sign, _exec);
 	else if (_sign > 150)
@@ -70,6 +69,7 @@ Form::Form( const std::string name, int sign, int exec ) :
 	else if (_exec > 150)
 		throw GradeTooLowException(name, _sign, _exec);
 	_status = false;
+	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 }
 
 Form::~Form ( void ) {
