@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:26:56 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 05:49:11 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/11 21:40:42 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ class Form
 		bool							_status;
 		const int 				_sign;
 		const int					_exec;
+
+		static const int MAX_GRADE = 1;
+		static const int MIN_GRADE = 150;
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:25:23 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 02:41:59 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/11 21:39:07 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 #include <string>
 #include <iomanip>
 #include "Log.hpp"
-
-#define MAX_GRADE 1
-#define MIN_GRADE 150
 
 class Bureaucrat
 {
@@ -64,6 +61,9 @@ class Bureaucrat
 
 		const std::string _name;
 		int 							_grade;
+
+		static const int MAX_GRADE = 1;
+		static const int MIN_GRADE = 150;
 
 		Bureaucrat( const Bureaucrat& src); 						// can't use
 		Bureaucrat& operator=( const Bureaucrat& rhs );	// can't use
