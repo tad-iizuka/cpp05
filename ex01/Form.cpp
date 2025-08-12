@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:14:26 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 18:39:11 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ void	Form::beSigned(Bureaucrat* param)
 			<< C_CLR << std::endl;
 		return;
 	}
+	if (_sign < param->getGrade())
+		throw GradeTooHighException(
+			"[" + param->getName() + "]" + " sign grade " + Log::itoa(param->getGrade()));
+	else if (_exec > param->getGrade())
+		throw GradeTooHighException(
+			"[" + param->getName() + "]" + " exec grade " + Log::itoa(param->getGrade()));
 	std::cout 
 		<< C_G
 		<< param->getName()
@@ -63,7 +69,7 @@ Form::Form( const std::string name) :
 	_sign(DEFAULT_SIGN_GRADE),
 	_exec(DEFAULT_EXEC_GRADE) {
 
-		if (_sign < MAX_GRADE)
+	if (_sign < MAX_GRADE)
 		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
 	else if (_sign > MIN_GRADE)
 		throw GradeTooLowException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
@@ -81,15 +87,12 @@ Form::~Form ( void ) {
 
 // Exception handler
 
-Form::GradeTooHighException::GradeTooHighException(const std::string& name) : _name(name) {
-	std::cout << _name << std::endl;
-}
+Form::GradeTooHighException::GradeTooHighException(const std::string& name) : _name(name) {}
 
 Form::GradeTooHighException::~GradeTooHighException( void ) throw() {}
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	std::cout << _name << std::endl;
 	return _name.c_str();
 }
 

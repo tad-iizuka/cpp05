@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:14:33 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 18:39:33 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ void	Form::beSigned(Bureaucrat* param)
 			<< C_CLR << std::endl;
 		return;
 	}
+	if (_sign < param->getGrade())
+		throw GradeTooHighException(
+			"[" + param->getName() + "]" + " sign grade " + Log::itoa(param->getGrade()));
+	else if (_exec > param->getGrade())
+		throw GradeTooHighException(
+			"[" + param->getName() + "]" + " exec grade " + Log::itoa(param->getGrade()));
 	std::cout 
 		<< C_G
 		<< param->getName()

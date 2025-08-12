@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:06:27 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 18:33:06 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	signIn( std::string name )
 	}
 	catch (Form::GradeTooHighException& e)
 	{
-		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]");
+		Log::a(F, L, C_R, "GradeTooHighException", e.what());
 	}
 	catch (Form::GradeTooLowException& e)
 	{
-		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]");
+		Log::a(F, L, C_R, "GradeTooLowException", e.what());
 	}
 }
