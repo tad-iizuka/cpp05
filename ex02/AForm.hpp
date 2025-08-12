@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 14:11:34 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 18:05:39 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,47 +27,39 @@ class Form
 		int								getExec( void ) const;
 		void							beSigned(Bureaucrat* param);
 	
-		Form( const std::string name, const int sign, const int exec );
+		Form( const std::string name );
 		~Form ( void );
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				GradeTooHighException(const std::string& name, int sign, int exec);
+				GradeTooHighException(const std::string& name);
 				~GradeTooHighException ( void ) throw();
-				virtual const char* what() const throw();
-				virtual int					sign( void ) const;
-				virtual int					exec( void ) const;
+				const char* what() const throw();
 			private:
 				std::string _name;
-				int 				_sign;
-				int					_exec;
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				GradeTooLowException(const std::string& name, int sign, int exec);
+				GradeTooLowException(const std::string& name);
 				~GradeTooLowException ( void ) throw();
-				virtual const char* what() const throw();
-				virtual int					sign( void ) const;
-				virtual int					exec( void ) const;
+				const char* what() const throw();
 			private:
 				std::string _name;
-				int 				_sign;
-				int					_exec;
 		};
 		
 	private:
 
+		static const int MAX_GRADE = 1;
+		static const int MIN_GRADE = 150;
+	
 		Form( void );
 		const std::string _name;
 		bool							_status;
 		const int 				_sign;
 		const int					_exec;
-
-		static const int MAX_GRADE = 1;
-		static const int MIN_GRADE = 150;
 
 };
 
