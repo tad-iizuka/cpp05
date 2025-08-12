@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:39:11 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 20:22:04 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,7 @@ void	Form::beSigned(Bureaucrat* param)
 {
 	if (_status)
 	{
-		std::cout 
-			<< C_R
-			<< param->getName()
-			<< " couldn't sign ["
-			<< getName()
-			<< "] because "
-			<< "already signed in."
-			<< C_CLR << std::endl;
+		Log::a(F, L, C_R, param->getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
 	if (_sign < param->getGrade())
@@ -52,13 +45,7 @@ void	Form::beSigned(Bureaucrat* param)
 	else if (_exec > param->getGrade())
 		throw GradeTooHighException(
 			"[" + param->getName() + "]" + " exec grade " + Log::itoa(param->getGrade()));
-	std::cout 
-		<< C_G
-		<< param->getName()
-		<< " signed ["
-		<< getName()
-		<< "]"
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_G, param->getName(), "signed", getName());
 	_status = !_status;
 }
 
