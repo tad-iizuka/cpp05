@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:14:45 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:24:30 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Bureaucrat.hpp"
 #include <string>
 
-class Form
+class AForm
 {
 
 	public:
@@ -27,8 +27,8 @@ class Form
 		int								getExec( void ) const;
 		void							beSigned(Bureaucrat* param);
 	
-		Form( const std::string name );
-		~Form ( void );
+		AForm( const std::string name );
+		virtual ~AForm ( void );
 
 		class GradeTooHighException : public std::exception
 		{
@@ -50,14 +50,14 @@ class Form
 				std::string _name;
 		};
 		
-	private:
+	protected:
 
 		static const int MAX_GRADE = 1;
 		static const int MIN_GRADE = 150;
 		static const int DEFAULT_SIGN_GRADE = 1;
 		static const int DEFAULT_EXEC_GRADE = 1;
 
-		Form( void );
+		AForm( void );
 		const std::string _name;
 		bool							_status;
 		const int 				_sign;
@@ -65,6 +65,6 @@ class Form
 
 };
 
-std::ostream& operator<<( std::ostream& os, const Form& rhs );
+std::ostream& operator<<( std::ostream& os, const AForm& rhs );
 
 #endif

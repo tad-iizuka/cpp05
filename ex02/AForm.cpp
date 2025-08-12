@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 20:41:11 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:05:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 
 // getter / setter
 
-const std::string Form::getName( void ) const {
+const std::string AForm::getName( void ) const {
 	return _name;
 }
 
-int Form::getSign( void ) const {
+int AForm::getSign( void ) const {
 	return _sign;
 }
 
-int Form::getExec( void ) const {
+int AForm::getExec( void ) const {
 	return _exec;
 }
 
-bool	Form::getStatus( void )
+bool	AForm::getStatus( void )
 {
 	return _status;
 }
 
-void	Form::beSigned(Bureaucrat* param)
+void	AForm::beSigned(Bureaucrat* param)
 {
 	if (_status)
 	{
@@ -51,7 +51,7 @@ void	Form::beSigned(Bureaucrat* param)
 
 // Orthodox Canonical Form
 
-Form::Form( const std::string name) :
+AForm::AForm( const std::string name) :
 	_name(name),
 	_sign(DEFAULT_SIGN_GRADE),
 	_exec(DEFAULT_EXEC_GRADE) {
@@ -68,31 +68,31 @@ Form::Form( const std::string name) :
 	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 }
 
-Form::~Form ( void ) {
+AForm::~AForm ( void ) {
 	Log::a(F, L, C_R, "[" + _name + "] destructed.");
 }
 
 // Exception handler
 
-Form::GradeTooHighException::GradeTooHighException(const std::string& name) : _name(name) {}
+AForm::GradeTooHighException::GradeTooHighException(const std::string& name) : _name(name) {}
 
-Form::GradeTooHighException::~GradeTooHighException( void ) throw() {}
+AForm::GradeTooHighException::~GradeTooHighException( void ) throw() {}
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return _name.c_str();
 }
 
-Form::GradeTooLowException::GradeTooLowException(const std::string& name) : _name(name) {}
+AForm::GradeTooLowException::GradeTooLowException(const std::string& name) : _name(name) {}
 
-Form::GradeTooLowException::~GradeTooLowException( void ) throw() {}
+AForm::GradeTooLowException::~GradeTooLowException( void ) throw() {}
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return this->_name.c_str();
 }
 
-std::ostream& operator<<( std::ostream& os, const Form& rhs )
+std::ostream& operator<<( std::ostream& os, const AForm& rhs )
 {
 	os
 		<< __FILE__ << ":"

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:06:37 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:04:30 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	Bureaucrat::decGrade( void ) {
 
 void	Bureaucrat::signForm( void )
 {
-	Form *f = new Form("NewForm");
-	f->beSigned(this);
-	delete f;
+	// Form *f = new Form("NewForm");
+	// f->beSigned(this);
+	// delete f;
 }
 
 // Orthodox Canonical Form
