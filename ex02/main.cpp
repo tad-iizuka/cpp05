@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 21:44:05 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:46:30 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	signIn( std::string name, std::string form, int grade );
 int main( void )
 {
 	checkForm("default");
-	signIn("Marie", "form-ex01", 1);
+	signIn("Marie", "ShrubberyCreationForm", 1);
 	return (EXIT_SUCCESS);
 }
 
