@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 20:31:13 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 20:41:11 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,9 @@ const char* Form::GradeTooLowException::what() const throw()
 std::ostream& operator<<( std::ostream& os, const Form& rhs )
 {
 	os
-		<< "Form name [" << rhs.getName() << "]"
+		<< __FILE__ << ":"
+		<< __LINE__ << " "
+		<< "Form [" << rhs.getName() << "]"
 		<< " status [" << (rhs.getExec() ? "sign in" : "sign out") << "]"
 		<< " sign [" << rhs.getSign() << "]"
 		<< " exec [" << rhs.getExec() << "]";
