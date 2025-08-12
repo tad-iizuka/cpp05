@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:05:39 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/12 18:14:45 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ class Form
 
 		static const int MAX_GRADE = 1;
 		static const int MIN_GRADE = 150;
-	
+		static const int DEFAULT_SIGN_GRADE = 1;
+		static const int DEFAULT_EXEC_GRADE = 1;
+
 		Form( void );
 		const std::string _name;
 		bool							_status;
