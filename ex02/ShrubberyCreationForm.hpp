@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:32:05 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/13 07:24:49 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 04:04:48 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
+#include <cstdlib>
 
 class ShrubberyCreationForm : public AForm
 {

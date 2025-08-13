@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:31:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/13 07:24:57 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 03:55:33 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <unistd.h>
+#include <cstdlib>
+#include <ctime>
 
 class RobotomyRequestForm : public AForm
 {

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 03:13:51 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 04:04:42 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
-#include <cstdlib>
 
 class PresidentialPardonForm : public AForm
 {
