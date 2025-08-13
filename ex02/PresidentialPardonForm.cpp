@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 04:05:18 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:10:45 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor)
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const std::string target) :
-	AForm(target), _sign(DEFAULT_SIGN_GRADE), _exec(DEFAULT_EXEC_GRADE)  {
+	AForm(target, DEFAULT_SIGN_GRADE, DEFAULT_EXEC_GRADE) {
 
 	if (_sign < MAX_GRADE)
 		throw GradeTooHighException("[" + target + "]" + " sign grade " + Log::itoa(_sign));

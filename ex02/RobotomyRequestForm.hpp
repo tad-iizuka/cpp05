@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:31:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 03:55:33 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:06:43 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class RobotomyRequestForm : public AForm
 		static const int DEFAULT_EXEC_GRADE = 45;
 
 		RobotomyRequestForm( void );
-		const int 				_sign;
-		const int					_exec;	
+		// const int 				_sign;
+		// const int					_exec;	
 };
 
 #endif

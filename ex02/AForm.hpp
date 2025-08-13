@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 04:51:59 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:07:46 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class AForm
 		void							execute(const Bureaucrat& executor) const;
 
 		AForm( const std::string name );
+		AForm( const std::string name, int sign, int exec );
 		virtual ~AForm ( void );
 
 		class GradeTooHighException : public std::exception

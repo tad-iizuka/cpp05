@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 04:52:17 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:15:28 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ void	AForm::beSigned(const Bureaucrat& executor)
 		Log::a(F, L, C_R, executor.getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
+	std::cout << _sign << " " << _exec << std::endl;
 	if (_sign < executor.getGrade())
-		throw GradeTooHighException(
+		throw GradeTooLowException(
 			"[" + executor.getName() + "]" + " sign grade " + Log::itoa(executor.getGrade()));
-	else if (_exec > executor.getGrade())
-		throw GradeTooHighException(
+	else if (_exec < executor.getGrade())
+		throw GradeTooLowException(
 			"[" + executor.getName() + "]" + " exec grade " + Log::itoa(executor.getGrade()));
 	Log::a(F, L, C_G, executor.getName(), "signed", getName());
 	_status = !_status;
@@ -62,6 +63,23 @@ AForm::AForm( const std::string name) :
 	_sign(DEFAULT_SIGN_GRADE),
 	_exec(DEFAULT_EXEC_GRADE) {
 
+	if (_sign < MAX_GRADE)
+		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
+	else if (_sign > MIN_GRADE)
+		throw GradeTooLowException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
+	if (_exec < MAX_GRADE)
+		throw GradeTooHighException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
+	else if (_exec > MIN_GRADE)
+		throw GradeTooLowException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
+	_status = false;
+	Log::a(F, L, C_B, "[" + _name + "] constructed.");
+}
+
+AForm::AForm( const std::string name, int sign, int exec ) :
+	_name(name),
+	_sign(sign),
+	_exec(exec) 
+{
 	if (_sign < MAX_GRADE)
 		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
 	else if (_sign > MIN_GRADE)
