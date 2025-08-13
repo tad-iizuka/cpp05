@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:32:00 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:10:36 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:35:26 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
-	(void)executor;
 	std::string command = "find ../ | sed -e 's/[^-][^\\/]*\\//|   /g' -e 's/|\\([^ ]\\)/|--- \\1/'";
 	command.append(" > ");
 	command.append(_name + "_shrubbery");
@@ -36,7 +35,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 		}
 	}
 	Log::a(F, L, C_Y, ("[" + _name + "_shrubbery]"), "has been created.");
-	Log::a(F, L, C_G, "[execute]");
+	Log::a(F, L, C_G, executor.getName(), "executed", getName());
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target) :

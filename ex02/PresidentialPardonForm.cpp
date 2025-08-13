@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:10:45 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:34:21 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor)
 {
-	(void)executor;
 	Log::a(F, L, C_Y, getName(), "has been pardoned by Zaphod Beeblebrox.");
-	Log::a(F, L, C_G, "[execute]");
+	Log::a(F, L, C_G, executor.getName(), "executed", getName());
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const std::string target) :

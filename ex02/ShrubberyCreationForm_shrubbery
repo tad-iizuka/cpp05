@@ -1,0 +1,401 @@
+|   
+|   ex02
+|   |   ShrubberyCreationForm.cpp
+|   |   PresidentialPardonForm.hpp
+|   |   Log.o
+|   |   ex02
+|   |   PresidentialPardonForm.o
+|   |   Makefile
+|   |   ShrubberyCreationForm_shrubbery
+|   |   AForm.o
+|   |   RobotomyRequestForm.cpp
+|   |   ShrubberyCreationForm.hpp
+|   |   main.o
+|   |   main.cpp
+|   |   Bureaucrat.hpp
+|   |   AForm.cpp
+|   |   RobotomyRequestForm.o
+|   |   Log.cpp
+|   |   Bureaucrat.cpp
+|   |   PresidentialPardonForm.cpp
+|   |   ShrubberyCreationForm.o
+|   |   AForm.hpp
+|   |   Bureaucrat.o
+|   |   Log.hpp
+|   |   RobotomyRequestForm.hpp
+|   .git
+|   |   branches
+|   |   hooks
+|   |   |   post-update.sample
+|   |   |   pre-receive.sample
+|   |   |   prepare-commit-msg.sample
+|   |   |   pre-rebase.sample
+|   |   |   push-to-checkout.sample
+|   |   |   update.sample
+|   |   |   pre-push.sample
+|   |   |   fsmonitor-watchman.sample
+|   |   |   pre-merge-commit.sample
+|   |   |   commit-msg.sample
+|   |   |   applypatch-msg.sample
+|   |   |   pre-commit.sample
+|   |   |   pre-applypatch.sample
+|   |   index
+|   |   description
+|   |   HEAD
+|   |   logs
+|   |   |   HEAD
+|   |   |   refs
+|   |   |   |   heads
+|   |   |   |   |   main
+|   |   |   |   remotes
+|   |   |   |   |   origin
+|   |   |   |   |   |   main
+|   |   |   |   |   |   HEAD
+|   |   info
+|   |   |   exclude
+|   |   refs
+|   |   |   heads
+|   |   |   |   main
+|   |   |   remotes
+|   |   |   |   origin
+|   |   |   |   |   main
+|   |   |   |   |   HEAD
+|   |   |   tags
+|   |   objects
+|   |   |   89
+|   |   |   |   897572fa62ed6b687c490ab2985e81bfd01ab5
+|   |   |   |   0edef00c234e2ff490de3b74ce8993abca3fcf
+|   |   |   dc
+|   |   |   |   dfd9f3817f4819c68a61dde88910abcdf84757
+|   |   |   |   c54e3eb15423f5933ab27d32a0f3dcb93a83d9
+|   |   |   7e
+|   |   |   |   cdb0017ef0403968bf8795dfd6208c0c0442c5
+|   |   |   |   6b709fe94d805eb085d89d733c47b02dc9e316
+|   |   |   97
+|   |   |   |   5a078b0308aa50c196e115a0e111ce89761dc4
+|   |   |   |   0ff7840224b21f7056c6c3b2c41dcbfdb4e367
+|   |   |   2a
+|   |   |   |   a0c7fbe5765090775a763a0b0c4df5bc8de2db
+|   |   |   fb
+|   |   |   |   44012862f37d2ef2c484ab91ff7cfa6a0fc72d
+|   |   |   |   837fb00c055be57a00234105e80886cae8d098
+|   |   |   c5
+|   |   |   |   63c874606e4a817b2e66f5360c20b12184fc5e
+|   |   |   e2
+|   |   |   |   a8ff5de89fa1c96b99f7f9506e58bb88f49c0c
+|   |   |   |   5cb59341d34eab404742e27821015e16aca879
+|   |   |   0b
+|   |   |   |   62b8b6f54f981fd0a9bf37daa011272203421e
+|   |   |   08
+|   |   |   |   dafb9112f6e98ca023bdef67d62e15659759a9
+|   |   |   03
+|   |   |   |   8c0a11936f2fb566a670bead7bc4e86afeacad
+|   |   |   a6
+|   |   |   |   b52d75e2619d99323c4b1903d5c0f5c8a08638
+|   |   |   |   500a21ae9e0f588ec3ba7819dd5601513699cc
+|   |   |   |   cd4b38ddd737b6b180bccf3bffb8073ba1a464
+|   |   |   d1
+|   |   |   |   067004deedf14ee6cb01fe4d5b6eafdf1adcbf
+|   |   |   |   8b041ca4ee2887e1933ff1bb33716a2c35520c
+|   |   |   4e
+|   |   |   |   1478d86f5b4392b244514b9c2645cc42743b8a
+|   |   |   |   613482963bcb4766a54251fa436944875fe498
+|   |   |   9f
+|   |   |   |   a63a1122d82850990a3fbd9fb6c03800632bce
+|   |   |   4a
+|   |   |   |   d435f4e42944fe7112d8b4ec5dc8aff8fc3682
+|   |   |   |   71d58998c10ff1418d2fad1088e1a3f73bd3a9
+|   |   |   99
+|   |   |   |   b3a27bfe8ccaa2bedae149ff01e0254d8e2ad6
+|   |   |   |   a6f2a573509a7bb761740b0dba0db6694f44a9
+|   |   |   52
+|   |   |   |   d23f11932d7525972e293d8ae20700543dd688
+|   |   |   c3
+|   |   |   |   eda21125d770d37ece280e22a0ec0fe1e7b06b
+|   |   |   d3
+|   |   |   |   5ce54007b71ec84e3460f5e7138fd0013aa7de
+|   |   |   4f
+|   |   |   |   34d5ababd924f2781b48d6bf9b5e895e540855
+|   |   |   8a
+|   |   |   |   ea94703ef995ebf8c96c2e81ec209a36d006b1
+|   |   |   3c
+|   |   |   |   ee8407103da3b32abe0dc7ff79506fa80ba844
+|   |   |   0f
+|   |   |   |   a1dee52a9109eb2606b489a6d89c895d10ac22
+|   |   |   |   69b864886af854dbf8adf3a9c0d6f22f987e5a
+|   |   |   3f
+|   |   |   |   9466ab26ddb9fbe76f91dfb83770d26844b299
+|   |   |   |   49e6d4eeb41dc8a79b5a64a293709f05336d38
+|   |   |   |   1f2e2f4a4ffa0d94dab2ee2bc1c4aac82b7384
+|   |   |   04
+|   |   |   |   09fb162895e3c86eef089bd13c9ae294cc7dea
+|   |   |   |   4728a2dd4b52b215f7c8ff3fbf81d9a19aef17
+|   |   |   5c
+|   |   |   |   8b45220f64066ec6bee4a748eb04dda2b4d41a
+|   |   |   |   e930fece09445e44157a558d622d3857559fef
+|   |   |   6f
+|   |   |   |   5404bcc2f4a843f92fd335df514a3020494ecd
+|   |   |   ca
+|   |   |   |   bebb553c78db63c6ce2c33a7b5784582e036a9
+|   |   |   41
+|   |   |   |   41c8ee6b328529ef8d43512c3bea437420d0d4
+|   |   |   info
+|   |   |   5d
+|   |   |   |   ca0987c4d3188d65ba791911ce8c8f788c51b4
+|   |   |   |   99f4069ca38cb552d41b2cb60ba1b01d3d4c89
+|   |   |   2c
+|   |   |   |   f2300c93af288a52a5a61b2840e3537e2ebe20
+|   |   |   45
+|   |   |   |   a1dd4e995fd376c7c079727be2605c6960c0c1
+|   |   |   a8
+|   |   |   |   75f1feb4b6607948e3afef8812ce4d9813e6e3
+|   |   |   |   b1d320d3466ec394cd2e097f3098dc9795fb9a
+|   |   |   |   661952447f812edbccecd7c4dacbd87a458a12
+|   |   |   31
+|   |   |   |   d57137db14d4d2eca668175d4c0c3169e46c92
+|   |   |   33
+|   |   |   |   786492b652b2a699f035ac469a4fdbb8af2ae7
+|   |   |   8e
+|   |   |   |   cc3e5e16ce7f1b1b4286de470f1ce8fecc7cb3
+|   |   |   |   bfe76f46c40446b2c36df299780f3c9704fca1
+|   |   |   a7
+|   |   |   |   d785e6f0204c52e7812d11ca7d4ac7f9424a8a
+|   |   |   |   cdcf86da03ccec9a8b28793eb0c171fc3a2b86
+|   |   |   |   ad8a6f0240d755fde34a4f81e878a324486f0e
+|   |   |   ba
+|   |   |   |   0d58a14bb208806bc8d2cfbe289be14d49e6ef
+|   |   |   88
+|   |   |   |   faf1b6d1790a53cb9d58fdda11d0a68cac0da4
+|   |   |   |   d7c5eccc250733e2189bda736afe46b8003739
+|   |   |   06
+|   |   |   |   dd9db0753172fe11b7b1966e62782015aa080b
+|   |   |   1b
+|   |   |   |   6579609d13892a619f5d3ee7cedbff0136dc0a
+|   |   |   cf
+|   |   |   |   b62ee670ef6815abc108b92dbb4cc92ed86713
+|   |   |   |   8ec72327f38e326e4ceffa0dd7c4da487b8734
+|   |   |   f6
+|   |   |   |   81c5213427f84f698f42e131658849665bd6f9
+|   |   |   ad
+|   |   |   |   131b7e0237b309d110a7cb47dfc257a0ffcc0d
+|   |   |   29
+|   |   |   |   7f7a747599bb1331e6b6cf204632b5d08eac03
+|   |   |   |   b0f4c382677c095ba43b9963e68e017a708245
+|   |   |   9c
+|   |   |   |   a6064933e380e897352c83fd8d4fab25bbd519
+|   |   |   01
+|   |   |   |   f7957a719da704a1664a081b9b2059ddd38635
+|   |   |   53
+|   |   |   |   262728d2f9debf530d568cff077c4464c1a5f7
+|   |   |   ee
+|   |   |   |   128243c9c606d27aa08de7a7476625bdf4a186
+|   |   |   a2
+|   |   |   |   9af27dbb1793da9e67a230b42886f9730bbeb0
+|   |   |   |   9af185fae46c088d69e03a11ed42bec1b7ede2
+|   |   |   65
+|   |   |   |   f7851ade46f2181c6e06116bf0417203806fcc
+|   |   |   02
+|   |   |   |   7961356d82f5d5936e737565cefc099dfae3ef
+|   |   |   9d
+|   |   |   |   51a6d69894ceaa24c1132185341bb75128c6f8
+|   |   |   d5
+|   |   |   |   10fb8c737ce8ce4fac179562f637391156f789
+|   |   |   |   d6b700edeec1aee002747ac64cc988981004de
+|   |   |   27
+|   |   |   |   df8bdb873d6e9ec25b7d61d4019ed3c4ac6f01
+|   |   |   |   946eb6219977d446931270cd2fb36c892f3428
+|   |   |   23
+|   |   |   |   2a8ad2a75023d843a694f0235f8b78580db3f9
+|   |   |   |   423c57ade57fe4f1319bc95533d24fdf11009a
+|   |   |   df
+|   |   |   |   ee6853bbb4d60976a6c9b59e86262c0921d9ab
+|   |   |   37
+|   |   |   |   3e08cfbab057213b43bdfae0f586f417cf0bb3
+|   |   |   dd
+|   |   |   |   2f2f85632d0fbfd1c8af95e36ea5dd17aa84f9
+|   |   |   b3
+|   |   |   |   905148c692960f618593b117e83fdfa397a814
+|   |   |   3a
+|   |   |   |   d2ab380e9ac515fddd3fef0ed831e9d3d637c1
+|   |   |   71
+|   |   |   |   ff39c75f0ecfc842ce85b208ad9016e2f1f37a
+|   |   |   |   d7f7acf4ed376d7641e6e8ac7ebdf3949da966
+|   |   |   58
+|   |   |   |   e4c03d9254cebe395de35ac16e2c09f0068753
+|   |   |   55
+|   |   |   |   61490b8cfa240b0ad3e3653918c6bb20ad3c05
+|   |   |   |   a51ea9fb69964c88c57561d41f5af93cec5bdd
+|   |   |   bb
+|   |   |   |   feee2ed8c7b050f6b9cb903e595e4ed87de37e
+|   |   |   79
+|   |   |   |   10e05e063c196347a9d627e7aa7a4e49ce50d8
+|   |   |   78
+|   |   |   |   59da5290950559b1b0e677270c694f833eaf02
+|   |   |   d4
+|   |   |   |   fc7276903df4167908a936ff418f8d665497d9
+|   |   |   e6
+|   |   |   |   2454e29caeef170867f92bdb4bf92bc698526f
+|   |   |   |   155b6bf209259b8257e5b190d48a5adfd6410a
+|   |   |   bd
+|   |   |   |   7a012f31dc0aa0ce47b91d98f4d278f6bd6a5f
+|   |   |   |   2f42f9637ecba766390a91cc99000278876900
+|   |   |   b5
+|   |   |   |   b698d644413ce4e17cd81ba4767d36c9caf948
+|   |   |   c6
+|   |   |   |   3c4bea9c8e6ed22ec399312ce01002925e81f2
+|   |   |   c0
+|   |   |   |   1986e9551aafc1b673302533a5bd317c7cf19d
+|   |   |   |   c68a7cc712973c5469e466f39fdd98885dfc62
+|   |   |   fa
+|   |   |   |   fbf4877b493ce11bb054fcf0e72a70c918a3c1
+|   |   |   |   662a1a277bf32efb73ef93c878a5dfa4a53478
+|   |   |   00
+|   |   |   |   4ac3c62b647a4ffb20def4dcd99ba2e311d2b8
+|   |   |   40
+|   |   |   |   d576ec9a139586adf5e68be45c1c9872c3628f
+|   |   |   |   43b8e53c6c224fb3b54f8386e50b78bf12ef5e
+|   |   |   |   c53ee5570f0c0c4c125c2e633460144daf587e
+|   |   |   39
+|   |   |   |   a0d4db28437b5a81c0332ea5fd857d131edaff
+|   |   |   56
+|   |   |   |   0887f9bc210f071e36b794ae98fdd0c5c4e729
+|   |   |   aa
+|   |   |   |   ab512daac5c469fd097f68ae1078af8e25ea66
+|   |   |   |   02d7bd8c8b651e2beee84ffff98e37eb1a57dd
+|   |   |   |   280fd66c28eb261bd5e3a1d94bff21608a36c9
+|   |   |   d9
+|   |   |   |   3ed49e2d27d8bc6000d8b61cc0207170efe5e7
+|   |   |   35
+|   |   |   |   f9c3ef0ac8e8eaf030063781c4ccde6038b44f
+|   |   |   9a
+|   |   |   |   1a43ea442ad36a0438b1b26555e60814fa4de8
+|   |   |   |   9220ad8322cfdf0c4bd5291285aa7332861a73
+|   |   |   15
+|   |   |   |   9e5173457b2b2168f09ce927cf0016e1b58189
+|   |   |   |   f8ce45fa0ac685454ec14239d9a819c97c29bb
+|   |   |   09
+|   |   |   |   0c7cf9a889f0a331177fe865198324ac4ceb91
+|   |   |   |   66f7bde28c915e60b2921914faca8aaea7a486
+|   |   |   |   151ed2cea982563aee1f33a7335bbb0075eb34
+|   |   |   13
+|   |   |   |   7467e45a24638c0ffd47c34444633b958ee641
+|   |   |   36
+|   |   |   |   1ced7dd109c559700c2eb12818d3aad3847da5
+|   |   |   0e
+|   |   |   |   f0475f2558907fc2142b2e61671fcb236b096a
+|   |   |   b9
+|   |   |   |   c59e792a91fc7caf7e09f00357d0904a578581
+|   |   |   |   85128c41a9c1eff8a5402a95a075a38b6c7ff1
+|   |   |   26
+|   |   |   |   6222ecf434b7be4c88ad88014f9f98d0826bb5
+|   |   |   8c
+|   |   |   |   d43ca4cc2d29bee32635947b24559112a124a2
+|   |   |   76
+|   |   |   |   597f638c6a91f9e9ab0eb34bda3f17322c8ec7
+|   |   |   1f
+|   |   |   |   b73bde7f39f10d4a502eeefb1580ee23ee8636
+|   |   |   24
+|   |   |   |   918a79bb3c93a9c74027c663e6492498120087
+|   |   |   34
+|   |   |   |   d5487f64ef8607d2ccbf8111a1a072f3761fdf
+|   |   |   63
+|   |   |   |   ea3eb3974a5a94c067f3cc3c8f42d42fc68f76
+|   |   |   d6
+|   |   |   |   a516688f9fdcf32205bc9842dd18b1386f6d9b
+|   |   |   c1
+|   |   |   |   d89799d1c3c07fb617fea74fa41d6d8722e6a9
+|   |   |   47
+|   |   |   |   5ddfb216974d1ae09b85ec4e546ca61852e132
+|   |   |   7c
+|   |   |   |   53c2cf50eb2491b56d6978a6375393983b2a2a
+|   |   |   bf
+|   |   |   |   a6a3173dfd3923fc6706f232bedc2840c4777f
+|   |   |   e9
+|   |   |   |   6b3f15c349cf6528b7c435d1301893890257f0
+|   |   |   61
+|   |   |   |   1df0d615262e66d1a4faae2363c30b02debda8
+|   |   |   |   94a8d66c8e20f439f7fc536f45f452165a5628
+|   |   |   85
+|   |   |   |   20b8b2dce6986662d5ca37260e62cbdf4f2581
+|   |   |   30
+|   |   |   |   9918e5a16a137d6b601040d5b43afb3e5c644b
+|   |   |   1c
+|   |   |   |   3d8817547612ab6f2bdb7277582ba018e9d4b3
+|   |   |   0a
+|   |   |   |   a79c18a1088c43df37a829fb1b009609f6e7a7
+|   |   |   |   267f1508e830df56b233069220556b87347fd3
+|   |   |   32
+|   |   |   |   60553584ea9fcb89a7a1b646affa096d75efce
+|   |   |   pack
+|   |   |   |   pack-1b50c33493b1565af351a06fcd5c84e935cac1af.pack
+|   |   |   |   pack-1b50c33493b1565af351a06fcd5c84e935cac1af.idx
+|   |   |   05
+|   |   |   |   7f4c16a614519fa33bd6a55e4896ca8ecc0f2c
+|   |   |   |   ac8b1258116fc7120c7aca8a2dcceaf9950be7
+|   |   |   57
+|   |   |   |   e9403e83a9a89b947d0a3a28498c1eb13cfc7e
+|   |   |   1d
+|   |   |   |   545a2c7e63ba4b62c78a919e54342501e86596
+|   |   |   b1
+|   |   |   |   0a8f68316aea63821c17c3fbe8a4390f355189
+|   |   |   8b
+|   |   |   |   74af0e4617a589864e6ca1ac2a29c2dd89c41c
+|   |   |   66
+|   |   |   |   e7184bf2b116089128ba3ea52d47882051d677
+|   |   |   |   ee01abf7d4edf7eba78a94bfa25f0d61f2b0e5
+|   |   |   5f
+|   |   |   |   827955b62e963b363d844df35e45c7a13c57e8
+|   |   |   f9
+|   |   |   |   57dbd57c9212ba8fdbabace12b991a70e7f07f
+|   |   |   |   514cbd7b7dfb05f6cb0d02e898af7645cfd98e
+|   |   |   6c
+|   |   |   |   511a0e7d0127ce2a49b45645f361549b80d761
+|   |   |   |   9aa64a699ef27f44aee1b2b4754a426992f60a
+|   |   |   c4
+|   |   |   |   933b588f0652e765ff69f7549afb80561072da
+|   |   |   48
+|   |   |   |   11adce754e26ce238524734b0d7696c6ddcd54
+|   |   |   cc
+|   |   |   |   594e659a8b4d9b45199c5e40aabb2adce42dea
+|   |   |   51
+|   |   |   |   c015f889d9fa45d78b02ca6113dc1332da8055
+|   |   |   70
+|   |   |   |   63f7d7777ce6248b38d09cbfc0df5f19066dba
+|   |   |   |   8fd85353bb7b0b2e6e1f5df327268709ea257b
+|   |   |   |   c09d51205a9551bc8c614153a3bc2041ffa2fa
+|   |   |   22
+|   |   |   |   ac7c18aa82139e1625dff21aff92fdf0713b63
+|   |   |   |   941b641a8f24b136a861319dab6af1144f8a70
+|   |   |   d2
+|   |   |   |   3e3747fc5bf8e96476cff5956e7986bd6c689a
+|   |   |   |   37e1b105a192070ce420d4ee830b6cad017dc5
+|   |   |   |   1935082028b3783d8d2f54c82c46d53b76edd2
+|   |   |   3e
+|   |   |   |   1829e0a2c568ba0c32e06ac371e8c9b28f7455
+|   |   |   b6
+|   |   |   |   7968d35106f2b039519fb1f20266505879fed7
+|   |   |   |   0fd201304b944d604b08360351df78ed6dca52
+|   |   COMMIT_EDITMSG
+|   |   packed-refs
+|   |   ORIG_HEAD
+|   |   config
+|   |   FETCH_HEAD
+|   ex01
+|   |   Form.hpp
+|   |   Makefile
+|   |   main.cpp
+|   |   Bureaucrat.hpp
+|   |   Form.cpp
+|   |   Log.cpp
+|   |   Bureaucrat.cpp
+|   |   Log.hpp
+|   ex00
+|   |   Makefile
+|   |   main.cpp
+|   |   Bureaucrat.hpp
+|   |   Log.cpp
+|   |   Bureaucrat.cpp
+|   |   Log.hpp
+|   .vscode
+|   |   settings.json
+|   .gitignore

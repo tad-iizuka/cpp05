@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:14:45 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:35:49 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	signInPresidentialPardonForm( std::string name, std::string form, int grade
 int main( void )
 {
 	checkForm("default");
-	signInShrubberyCreationForm("Marie", "ShrubberyCreationForm", 140);
+	signInShrubberyCreationForm("Marie", "ShrubberyCreationForm", 1);
 	signInRobotomyRequestForm("Marie", "RobotomyRequestForm", 1);
 	signInPresidentialPardonForm("Marie", "PresidentialPardonForm", 1);
 	return (EXIT_SUCCESS);

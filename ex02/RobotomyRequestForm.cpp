@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:53 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:10:41 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:35:08 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
-	(void)executor;
 	Log::a(F, L, C_Y, "drilling noises: brrrrrr...");
 	usleep(500000);
 	Log::a(F, L, C_Y, "drilling noises: vrrrrrr...");
@@ -24,6 +23,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 	} else {
 		Log::a(F, L, C_Y, _name, "has been robotomized failed.");
 	}
+	Log::a(F, L, C_G, executor.getName(), "executed", getName());
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string target) :
