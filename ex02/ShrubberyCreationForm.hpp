@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:32:05 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 04:04:48 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 04:45:31 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ShrubberyCreationForm : public AForm
 {
 	public:
 
-	void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor);
 
 		ShrubberyCreationForm( const std::string target);
 		~ShrubberyCreationForm( void );

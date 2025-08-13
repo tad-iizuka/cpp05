@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/13 07:31:33 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 04:40:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,25 @@ void	checkForm( std::string name )
 
 void	signInShrubberyCreationForm( std::string name, std::string form, int grade )
 {
-	Bureaucrat *bu;
+	// Bureaucrat *bu;
+	// try {
+	// 	bu = new Bureaucrat(name, grade);
+	// }
+	// catch (Bureaucrat::GradeTooHighException& e)
+	// {
+	// 	Log::a(F, L, C_R, "GradeTooHighException", e.what(), Log::itoa(grade));
+	// 	return;
+	// }
+	// catch (Bureaucrat::GradeTooLowException& e)
+	// {
+	// 	Log::a(F, L, C_R, "GradeTooLowException", e.what(), Log::itoa(grade));
+	// 	return;
+	// }
 	try {
-		bu = new Bureaucrat(name, grade);
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooHighException", e.what(), Log::itoa(grade));
-		return;
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooLowException", e.what(), Log::itoa(grade));
-		return;
-	}
-	try {
+		Bureaucrat bu(name, grade);
 		ShrubberyCreationForm a( form );
 		a.beSigned(bu);
-		a.execute(*bu);
+		a.execute(bu);
 	}
 	catch (AForm::GradeTooHighException& e)
 	{
@@ -79,29 +80,29 @@ void	signInShrubberyCreationForm( std::string name, std::string form, int grade 
 	{
 		Log::a(F, L, C_R, "GradeTooLowException", e.what());
 	}
-	delete bu;
 }
 
 void	signInRobotomyRequestForm( std::string name, std::string form, int grade )
 {
-	Bureaucrat *bu;
+	// Bureaucrat *bu;
+	// try {
+	// 	bu = new Bureaucrat(name, grade);
+	// }
+	// catch (Bureaucrat::GradeTooHighException& e)
+	// {
+	// 	Log::a(F, L, C_R, "GradeTooHighException", e.what(), Log::itoa(grade));
+	// 	return;
+	// }
+	// catch (Bureaucrat::GradeTooLowException& e)
+	// {
+	// 	Log::a(F, L, C_R, "GradeTooLowException", e.what(), Log::itoa(grade));
+	// 	return;
+	// }
 	try {
-		bu = new Bureaucrat(name, grade);
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooHighException", e.what(), Log::itoa(grade));
-		return;
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooLowException", e.what(), Log::itoa(grade));
-		return;
-	}
-	try {
+		Bureaucrat bu(name, grade);
 		RobotomyRequestForm b( form );
 		b.beSigned(bu);
-		b.execute(*bu);
+		b.execute(bu);
 	}
 	catch (AForm::GradeTooHighException& e)
 	{
@@ -111,28 +112,28 @@ void	signInRobotomyRequestForm( std::string name, std::string form, int grade )
 	{
 		Log::a(F, L, C_R, "GradeTooLowException", e.what());
 	}
-	delete bu;
 }
 
 void	signInPresidentialPardonForm( std::string name, std::string form, int grade )
 {
-	Bureaucrat *bu;
+	// Bureaucrat *bu;
+	// try {
+	// 	bu = new Bureaucrat(name, grade);
+	// }
+	// catch (Bureaucrat::GradeTooHighException& e)
+	// {
+	// 	Log::a(F, L, C_R, "GradeTooHighException", e.what(), Log::itoa(grade));
+	// 	return;
+	// }
+	// catch (Bureaucrat::GradeTooLowException& e)
+	// {
+	// 	Log::a(F, L, C_R, "GradeTooLowException", e.what(), Log::itoa(grade));
+	// 	return;
+	// }
 	try {
-		bu = new Bureaucrat(name, grade);
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooHighException", e.what(), Log::itoa(grade));
-		return;
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooLowException", e.what(), Log::itoa(grade));
-		return;
-	}
-	try {
+		Bureaucrat *bu = new Bureaucrat(name, grade);
 		PresidentialPardonForm c( form );
-		c.beSigned(bu);
+		c.beSigned(*bu);
 		c.execute(*bu);
 	}
 	catch (AForm::GradeTooHighException& e)
@@ -143,5 +144,5 @@ void	signInPresidentialPardonForm( std::string name, std::string form, int grade
 	{
 		Log::a(F, L, C_R, "GradeTooLowException", e.what());
 	}
-	delete bu;
+	// delete bu;
 }

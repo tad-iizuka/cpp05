@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 21:05:59 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 04:52:17 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,27 @@ bool	AForm::getStatus( void )
 	return _status;
 }
 
-void	AForm::beSigned(Bureaucrat* param)
+void	AForm::beSigned(const Bureaucrat& executor)
 {
 	if (_status)
 	{
-		Log::a(F, L, C_R, param->getName(), "couldn't sign", getName(), "because of already signed in.");
+		Log::a(F, L, C_R, executor.getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
-	if (_sign < param->getGrade())
+	if (_sign < executor.getGrade())
 		throw GradeTooHighException(
-			"[" + param->getName() + "]" + " sign grade " + Log::itoa(param->getGrade()));
-	else if (_exec > param->getGrade())
+			"[" + executor.getName() + "]" + " sign grade " + Log::itoa(executor.getGrade()));
+	else if (_exec > executor.getGrade())
 		throw GradeTooHighException(
-			"[" + param->getName() + "]" + " exec grade " + Log::itoa(param->getGrade()));
-	Log::a(F, L, C_G, param->getName(), "signed", getName());
+			"[" + executor.getName() + "]" + " exec grade " + Log::itoa(executor.getGrade()));
+	Log::a(F, L, C_G, executor.getName(), "signed", getName());
 	_status = !_status;
+}
+
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	executor.executeForm(*this);
+	Log::a(F, L, C_G, "[execute]");
 }
 
 // Orthodox Canonical Form
