@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:15:28 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 06:26:54 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	AForm::beSigned(const Bureaucrat& executor)
 		Log::a(F, L, C_R, executor.getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
-	std::cout << _sign << " " << _exec << std::endl;
 	if (_sign < executor.getGrade())
 		throw GradeTooLowException(
 			"[" + executor.getName() + "]" + " sign grade " + Log::itoa(executor.getGrade()));
