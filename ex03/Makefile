@@ -5,19 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/12 14:08:48 by tiizuka           #+#    #+#              #
-#    Updated: 2025/08/12 14:34:07 by tiizuka          ###   ########.fr        #
+#    Created: 2025/08/15 02:31:34 by tiizuka           #+#    #+#              #
+#    Updated: 2025/08/15 02:31:48 by tiizuka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of target
-NAME		=	ex02
+NAME		=	ex03
 
 # Source, object files
 SRCS 		=	main.cpp Bureaucrat.cpp AForm.cpp Log.cpp \
 					PresidentialPardonForm.cpp \
 					RobotomyRequestForm.cpp \
-					ShrubberyCreationForm.cpp
+					ShrubberyCreationForm.cpp \
+					Intern.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
