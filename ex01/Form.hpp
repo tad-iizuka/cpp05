@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:26:56 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 18:14:20 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 10:52:06 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Form
 		int								getSign( void ) const;
 		int								getExec( void ) const;
 		void							beSigned(Bureaucrat* param);
-	
-		Form( const std::string name );
+
+		Form( const std::string name, int sign, int exec );
 		~Form ( void );
 
 		class GradeTooHighException : public std::exception

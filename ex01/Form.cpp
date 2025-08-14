@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 20:40:28 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 10:44:37 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	Form::beSigned(Bureaucrat* param)
 
 // Orthodox Canonical Form
 
-Form::Form( const std::string name) :
+Form::Form( const std::string name, int sign, int exec ) :
 	_name(name),
-	_sign(DEFAULT_SIGN_GRADE),
-	_exec(DEFAULT_EXEC_GRADE) {
-
+	_sign(sign),
+	_exec(exec) 
+{
 	if (_sign < MAX_GRADE)
 		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
 	else if (_sign > MIN_GRADE)
