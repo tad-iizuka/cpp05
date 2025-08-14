@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:26:54 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 10:44:01 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,6 @@ void	AForm::execute(Bureaucrat const & executor) const
 }
 
 // Orthodox Canonical Form
-
-AForm::AForm( const std::string name) :
-	_name(name),
-	_sign(DEFAULT_SIGN_GRADE),
-	_exec(DEFAULT_EXEC_GRADE) {
-
-	if (_sign < MAX_GRADE)
-		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
-	else if (_sign > MIN_GRADE)
-		throw GradeTooLowException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
-	if (_exec < MAX_GRADE)
-		throw GradeTooHighException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
-	else if (_exec > MIN_GRADE)
-		throw GradeTooLowException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
-	_status = false;
-	Log::a(F, L, C_B, "[" + _name + "] constructed.");
-}
 
 AForm::AForm( const std::string name, int sign, int exec ) :
 	_name(name),
