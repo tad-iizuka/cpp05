@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:06:57 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:28:14 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PresidentialPardonForm : public AForm
 {
 	public:
 
-		void	execute(Bureaucrat const & executor);
+		void	execute(const Bureaucrat& executor) const;
 
 		PresidentialPardonForm( const std::string target);
 		~PresidentialPardonForm( void );

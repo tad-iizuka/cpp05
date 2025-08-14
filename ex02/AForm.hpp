@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 10:43:53 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:27:32 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AForm
 		int								getSign( void ) const;
 		int								getExec( void ) const;
 		void							beSigned(const Bureaucrat& executor);
-		void							execute(const Bureaucrat& executor) const;
+		virtual void			execute(const Bureaucrat& executor) const = 0;
 
 		AForm( const std::string name, int sign, int exec );
 		virtual ~AForm ( void );

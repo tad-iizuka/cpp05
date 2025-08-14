@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 10:57:55 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:39:35 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ void	Bureaucrat::decGrade( void ) {
 		_grade++;
 }
 
-void	Bureaucrat::signForm( void )
+void	Bureaucrat::signForm(AForm& form )
 {
-	AForm *f = new AForm("NewForm", getGrade(), getGrade());
-	f->beSigned(*this);
-	delete f;
+	form.beSigned(*this);
 }
 
-void	Bureaucrat::executeForm(AForm const & form) const
+void	Bureaucrat::executeForm(const AForm& form) const
 {
 	form.execute(*this);
 	Log::a(F, L, C_B, "[executeForm]");

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:31:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:06:43 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:28:22 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class RobotomyRequestForm : public AForm
 {
 	public:
 
-	void	execute(Bureaucrat const & executor);
+	void	execute(const Bureaucrat& executor) const;
 
 		RobotomyRequestForm( const std::string target);
 		~RobotomyRequestForm( void );

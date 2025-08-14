@@ -6,13 +6,13 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:53 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 06:35:08 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:41:22 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	Log::a(F, L, C_Y, "drilling noises: brrrrrr...");
 	usleep(500000);

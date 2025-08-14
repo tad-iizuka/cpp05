@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:25:23 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 04:49:37 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:38:46 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Bureaucrat
 		void 							setGrade( int grade );
 		void							incGrade( void );
 		void							decGrade( void );
-		void							signForm( void );
-		void							executeForm(AForm const & form) const;
+		void							signForm(AForm& form);
+		void							executeForm(const AForm& form) const;
 
 		Bureaucrat( void );
 		Bureaucrat( const std::string& name, int grade );
