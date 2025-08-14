@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:32:05 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:28:30 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 18:20:07 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class ShrubberyCreationForm : public AForm
 		static const int DEFAULT_EXEC_GRADE = 137;
 
 		ShrubberyCreationForm( void );
-		// const int 				_sign;
-		// const int					_exec;	
+
+		const std::string _target;
 };
 
 #endif

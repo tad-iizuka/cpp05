@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:28:14 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 18:22:49 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ class PresidentialPardonForm : public AForm
 		static const int DEFAULT_SIGN_GRADE = 145;
 		static const int DEFAULT_EXEC_GRADE = 137;
 
-		PresidentialPardonForm( void );
-		// const int 				_sign;
-		// const int					_exec;	
+		const std::string _target;
 };
 
 #endif

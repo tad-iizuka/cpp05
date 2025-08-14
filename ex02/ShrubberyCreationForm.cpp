@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:32:00 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:41:29 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 18:34:48 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::string command = "find ../ | sed -e 's/[^-][^\\/]*\\//|   /g' -e 's/|\\([^ ]\\)/|--- \\1/'";
 	command.append(" > ");
-	command.append(_name + "_shrubbery");
+	command.append(_target + "_shrubbery");
 	int ret = system(command.c_str());
 	if (ret == -1) {
 		Log::a(F, L, C_R, getName(), "couldn't execute system command.");
@@ -34,12 +34,12 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 				return;
 		}
 	}
-	Log::a(F, L, C_Y, ("[" + _name + "_shrubbery]"), "has been created.");
-	Log::a(F, L, C_G, executor.getName(), "executed", getName());
+	Log::a(F, L, C_Y, ("[" + _target + "_shrubbery]"), "has been created.");
+	Log::a(F, L, C_G, executor.getName(), "executed", _target);
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target) :
-	AForm(target, DEFAULT_SIGN_GRADE, DEFAULT_EXEC_GRADE) {
+	AForm("ShrubberyCreationForm", DEFAULT_SIGN_GRADE, DEFAULT_EXEC_GRADE), _target(target) {
 
 	if (_sign < MAX_GRADE)
 		throw GradeTooHighException("[" + target + "]" + " sign grade " + Log::itoa(_sign));
