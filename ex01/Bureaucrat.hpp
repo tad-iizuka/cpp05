@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:25:23 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 13:53:41 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:52:20 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iomanip>
 #include "Log.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 	public:
@@ -27,7 +29,7 @@ class Bureaucrat
 		void 							setGrade( int grade );
 		void							incGrade( void );
 		void							decGrade( void );
-		void							signForm( void );
+		void							signForm(Form& form);
 
 		Bureaucrat( void );
 		Bureaucrat( const std::string& name, int grade );

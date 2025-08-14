@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 10:44:37 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:49:25 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ bool	Form::getStatus( void )
 	return _status;
 }
 
-void	Form::beSigned(Bureaucrat* param)
+void	Form::beSigned(const Bureaucrat& param)
 {
 	if (_status)
 	{
-		Log::a(F, L, C_R, param->getName(), "couldn't sign", getName(), "because of already signed in.");
+		Log::a(F, L, C_R, param.getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
-	if (_sign < param->getGrade())
+	if (_sign < param.getGrade())
 		throw GradeTooHighException(
-			"[" + param->getName() + "]" + " sign grade " + Log::itoa(param->getGrade()));
-	else if (_exec > param->getGrade())
+			"[" + param.getName() + "]" + " sign grade " + Log::itoa(param.getGrade()));
+	else if (_exec > param.getGrade())
 		throw GradeTooHighException(
-			"[" + param->getName() + "]" + " exec grade " + Log::itoa(param->getGrade()));
-	Log::a(F, L, C_G, param->getName(), "signed", getName());
+			"[" + param.getName() + "]" + " exec grade " + Log::itoa(param.getGrade()));
+	Log::a(F, L, C_G, param.getName(), "signed", getName());
 	_status = !_status;
 }
 

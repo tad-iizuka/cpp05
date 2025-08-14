@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:26:56 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 10:52:06 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 17:48:38 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form
 		bool							getStatus( void );
 		int								getSign( void ) const;
 		int								getExec( void ) const;
-		void							beSigned(Bureaucrat* param);
+		void							beSigned(const Bureaucrat& param);
 
 		Form( const std::string name, int sign, int exec );
 		~Form ( void );
