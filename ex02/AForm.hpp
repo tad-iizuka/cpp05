@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:27:32 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 18:03:26 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ class AForm
 		static const int DEFAULT_EXEC_GRADE = 1;
 
 		AForm( void );
+		AForm( const AForm& src); 						// can't use
+		AForm& operator=( const AForm& rhs );	// can't use
+
 		const std::string _name;
 		bool							_status;
 		const int 				_sign;

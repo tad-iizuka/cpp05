@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:26:56 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:48:38 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/14 18:02:44 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ class Form
 		static const int DEFAULT_EXEC_GRADE = 1;
 
 		Form( void );
+		Form( const Form& src); 						// can't use
+		Form& operator=( const Form& rhs );	// can't use
+
 		const std::string _name;
 		bool							_status;
 		const int 				_sign;
