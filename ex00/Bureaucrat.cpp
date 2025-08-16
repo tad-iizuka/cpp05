@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 17:15:17 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:21:03 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<( std::ostream& os, const Bureaucrat& rhs )
 {
-	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+	os << C_G << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << C_CLR;
 	return os;
 }

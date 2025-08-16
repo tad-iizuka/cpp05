@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 17:13:09 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:26:09 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ std::string Log::m(const char *file, std::string line, std::string color,
 {
 	std::string str;
 	str = static_cast<std::string>(file) + ":" + line + " " + color;
-	str += "<Exception>";
+	str += "Exception#";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
 	str += " [" + s3 + "]";
@@ -104,7 +104,7 @@ std::string Log::m(const char *file, std::string line, std::string color,
 {
 	std::string str;
 	str = static_cast<std::string>(file) + ":" + line + " " + color;
-	str += "<Exception>";
+	str += "Exception";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
 	str += " [" + s3 + "]";
@@ -118,7 +118,7 @@ std::string Log::m(const char *file, std::string line, std::string color,
 {
 	std::string str;
 	str = static_cast<std::string>(file) + ":" + line + " " + color;
-	str += "<Exception>";
+	str += "Exception#";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
 	str += C_CLR;
@@ -131,7 +131,7 @@ std::string Log::m(const char *file, std::string line, std::string color,
 {
 	std::string str;
 	str = static_cast<std::string>(file) + ":" + line + " " + color;
-	str += "<Exception>";
+	str += "Exceptiona#";
 	str += " [" + s1 + "]";
 	str += C_CLR;
 	str += "\n";
