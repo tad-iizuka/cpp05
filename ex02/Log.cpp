@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 12:17:53 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 20:28:03 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,58 @@ std::string Log::ptoa(void* ptr) {
     sprintf(buf, "0x%lx", (unsigned long)ptr);
     return std::string(buf);
 }
+
+std::string Log::m(const char *file, int line, const char* color,
+	std::string s1, std::string s2, std::string s3, std::string s4)
+{
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
+	str += "Exception#";
+	str += " [" + s1 + "]";
+	str += " [" + s2 + "]";
+	str += " [" + s3 + "]";
+	str += " [" + s4 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
+}
+
+std::string Log::m(const char *file, int line, const char* color,
+	std::string s1, std::string s2, std::string s3)
+{
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
+	str += "Exception#";
+	str += " [" + s1 + "]";
+	str += " [" + s2 + "]";
+	str += " [" + s3 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
+}
+
+std::string Log::m(const char *file, int line, const char* color,
+	std::string s1, std::string s2)
+{
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
+	str += "Exception#";
+	str += " [" + s1 + "]";
+	str += " [" + s2 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
+}
+
+std::string Log::m(const char *file, int line, const char* color,
+	std::string s1)
+{
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
+	str += "Exceptiona#";
+	str += " [" + s1 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
+}
+
