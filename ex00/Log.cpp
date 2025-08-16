@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 12:17:53 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 14:55:05 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,14 @@ std::string Log::ptoa(void* ptr) {
     char buf[32];
     sprintf(buf, "0x%lx", (unsigned long)ptr);
     return std::string(buf);
+}
+
+const std::string &Log::m(std::string &file, std::string &line, std::string &color, std::string &s1, std::string &s2, std::string &s3)
+{
+	return file + ":" + line + " " + color + s1 + " " + s2 + " " + s3 + C_CLR + "\n";
+}
+
+const std::string &Log::m(std::string &file, std::string &line, std::string &color, std::string &s1, std::string &s2)
+{
+  return file + ":" + line + " " + color + s1 + " " + s2 + C_CLR + "\n";
 }

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:25:23 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/12 13:53:59 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 14:14:24 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,21 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				GradeTooHighException(const std::string& name, int grade);
+				GradeTooHighException(const std::string& error);
 				~GradeTooHighException ( void ) throw();
 				const char* what() const throw();
-				int					grade( void ) const;
 			private:
-				std::string _name;
-				int					_grade;
+				std::string _error;
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				GradeTooLowException(const std::string& name, int grade);
+				GradeTooLowException(const std::string& error);
 				~GradeTooLowException ( void ) throw();
 				const char* what() const throw();
-				int					grade( void ) const;
 			private:
-				std::string _name;
-				int					_grade;
+				std::string _error;
 		};
 
 	private:
