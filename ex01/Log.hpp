@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 14:40:04 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:19:52 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ class Log
 {
 	public:
 
+		static std::string itoa(int num);
+		static std::string ptoa(void* ptr);	
 		static void	a(const char *file, int line, const char *color, std::string s1,
 			std::string s2, std::string s3, std::string s4, std::string s5);	
 		static void	a(const char *file, int line, const char *color, std::string s1,
@@ -60,8 +62,14 @@ class Log
 		static void	a(const char *file, int line, const char *color, std::string s1,
 			std::string s2);
 		static void	a(const char *file, int line, const char *color, std::string s1);
-		static std::string itoa(int num);
-		static std::string ptoa(void* ptr);
+		static std::string	m(const char *file, std::string line, std::string color,
+			std::string s1, std::string s2, std::string s3, std::string s4);
+		static std::string	m(const char *file, std::string line, std::string color,
+			std::string s1, std::string s2, std::string s3);
+		static std::string	m(const char *file, std::string line, std::string color,
+			std::string s1, std::string s2);
+		static std::string	m(const char *file, std::string line, std::string color,
+			std::string s1);
 };
 
 #endif

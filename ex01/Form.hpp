@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:26:56 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 18:02:44 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:51:09 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				GradeTooHighException(const std::string& name);
-				~GradeTooHighException ( void ) throw();
-				const char* what() const throw();
+				GradeTooHighException(const std::string& error);
+				virtual ~GradeTooHighException ( void ) throw();
+				virtual const char* what() const throw();
 			private:
-				std::string _name;
+				std::string _error;
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				GradeTooLowException(const std::string& name);
-				~GradeTooLowException ( void ) throw();
-				const char* what() const throw();
+				GradeTooLowException(const std::string& error);
+				virtual ~GradeTooLowException ( void ) throw();
+				virtual const char* what() const throw();
 			private:
-				std::string _name;
+				std::string _error;
 		};
 		
 	private:

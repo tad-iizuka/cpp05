@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:49:25 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 18:08:37 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ void	Form::beSigned(const Bureaucrat& param)
 		return;
 	}
 	if (_sign < param.getGrade())
-		throw GradeTooHighException(
-			"[" + param.getName() + "]" + " sign grade " + Log::itoa(param.getGrade()));
+		throw GradeTooHighException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				param.getName(), "sign", Log::itoa(param.getGrade())));
 	else if (_exec > param.getGrade())
-		throw GradeTooHighException(
-			"[" + param.getName() + "]" + " exec grade " + Log::itoa(param.getGrade()));
+		throw GradeTooHighException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				param.getName(), "exec", Log::itoa(param.getGrade())));
 	Log::a(F, L, C_G, param.getName(), "signed", getName());
 	_status = !_status;
 }
@@ -57,39 +59,49 @@ Form::Form( const std::string name, int sign, int exec ) :
 	_exec(exec) 
 {
 	if (_sign < MAX_GRADE)
-		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
+		throw GradeTooHighException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, "sign", Log::itoa(_sign)));
 	else if (_sign > MIN_GRADE)
-		throw GradeTooLowException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
+		throw GradeTooLowException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, "sign", Log::itoa(_sign)));
 	if (_exec < MAX_GRADE)
-		throw GradeTooHighException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
+		throw GradeTooHighException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, "exec", Log::itoa(_exec)));
 	else if (_exec > MIN_GRADE)
-		throw GradeTooLowException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
+		throw GradeTooLowException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, "exec", Log::itoa(_exec)));
 	_status = false;
 	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 }
 
 Form::~Form ( void ) {
-	Log::a(F, L, C_R, "[" + _name + "] destructed.");
+	Log::a(F, L, C_B, "[" + _name + "] destructed.");
 }
 
 // Exception handler
 
-Form::GradeTooHighException::GradeTooHighException(const std::string& name) : _name(name) {}
+Form::GradeTooHighException::GradeTooHighException(const std::string& error) :
+	_error(error) {}
 
 Form::GradeTooHighException::~GradeTooHighException( void ) throw() {}
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return _name.c_str();
+	return _error.c_str();
 }
 
-Form::GradeTooLowException::GradeTooLowException(const std::string& name) : _name(name) {}
+Form::GradeTooLowException::GradeTooLowException(const std::string& error) :
+	_error(error) {}
 
 Form::GradeTooLowException::~GradeTooLowException( void ) throw() {}
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return this->_name.c_str();
+	return _error.c_str();
 }
 
 std::ostream& operator<<( std::ostream& os, const Form& rhs )
