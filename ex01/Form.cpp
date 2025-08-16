@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 18:08:37 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 20:31:03 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ void	Form::beSigned(const Bureaucrat& param)
 		return;
 	}
 	if (_sign < param.getGrade())
-		throw GradeTooHighException(Log::m(F, Log::itoa(L),
-				static_cast<std::string>(C_R),
+		throw GradeTooHighException(Log::m(F, L, C_R,
 				param.getName(), "sign", Log::itoa(param.getGrade())));
 	else if (_exec > param.getGrade())
-		throw GradeTooHighException(Log::m(F, Log::itoa(L),
-				static_cast<std::string>(C_R),
+		throw GradeTooHighException(Log::m(F, L, C_R,
 				param.getName(), "exec", Log::itoa(param.getGrade())));
 	Log::a(F, L, C_G, param.getName(), "signed", getName());
 	_status = !_status;
@@ -59,20 +57,16 @@ Form::Form( const std::string name, int sign, int exec ) :
 	_exec(exec) 
 {
 	if (_sign < MAX_GRADE)
-		throw GradeTooHighException(Log::m(F, Log::itoa(L),
-				static_cast<std::string>(C_R),
+		throw GradeTooHighException(Log::m(F, L, C_R,
 				_name, "sign", Log::itoa(_sign)));
 	else if (_sign > MIN_GRADE)
-		throw GradeTooLowException(Log::m(F, Log::itoa(L),
-				static_cast<std::string>(C_R),
+		throw GradeTooLowException(Log::m(F, L, C_R,
 				_name, "sign", Log::itoa(_sign)));
 	if (_exec < MAX_GRADE)
-		throw GradeTooHighException(Log::m(F, Log::itoa(L),
-				static_cast<std::string>(C_R),
+		throw GradeTooHighException(Log::m(F, L, C_R,
 				_name, "exec", Log::itoa(_exec)));
 	else if (_exec > MIN_GRADE)
-		throw GradeTooLowException(Log::m(F, Log::itoa(L),
-				static_cast<std::string>(C_R),
+		throw GradeTooLowException(Log::m(F, L, C_R,
 				_name, "exec", Log::itoa(_exec)));
 	_status = false;
 	Log::a(F, L, C_B, "[" + _name + "] constructed.");
