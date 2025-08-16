@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:46:44 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 03:50:00 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,27 @@ void	AForm::beSigned(const Bureaucrat& executor)
 {
 	if (_status)
 	{
-		Log::a(F, L, C_R, executor.getName(), "couldn't sign", getName(), "because of already signed in.");
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				executor.getName(), getName(), "couldn't sign because of already signed in"));
 		return;
 	}
 	if (_sign < executor.getGrade())
 		throw GradeTooHighException(Log::m(F, L, C_R,
 				executor.getName(), "sign", Log::itoa(executor.getGrade())));
-	else if (_exec < executor.getGrade())
-		throw GradeTooHighException(Log::m(F, L, C_R,
-				executor.getName(), "exec", Log::itoa(executor.getGrade())));
 	Log::a(F, L, C_G, executor.getName(), "signed", getName());
 	_status = !_status;
+}
+
+void	AForm::execute(const Bureaucrat& executor) const {
+	if (_exec < executor.getGrade())
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				executor.getName(), "exec", Log::itoa(executor.getGrade())));
+	if (!_status)
+	{
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				executor.getName(), Log::itoa(executor.getGrade()), "couldn't exec because of NOT signed in"));
+		return;
+	}
 }
 
 // Orthodox Canonical Form

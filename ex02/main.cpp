@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:57:27 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 03:50:37 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	signInShrubberyCreationForm( std::string name, std::string form, int grade 
 		Bureaucrat bu(name, grade);
 		ShrubberyCreationForm a( form );
 		a.beSigned(bu);
-		if (a.getStatus())
-			a.execute(bu);
+		a.execute(bu);
 	}
 	catch (std::exception& e)
 	{

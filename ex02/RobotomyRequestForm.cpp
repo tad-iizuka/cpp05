@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:30:53 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/17 03:32:17 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 03:39:50 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	AForm::execute(executor);
 	Log::a(F, L, C_Y, "drilling noises: brrrrrr...");
 	std::srand(std::time(NULL));
 	if (std::rand() % 2 == 0) {
