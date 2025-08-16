@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:46:22 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 03:31:58 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	Bureaucrat::signForm(AForm& form )
 void	Bureaucrat::executeForm(const AForm& form) const
 {
 	form.execute(*this);
-	Log::a(F, L, C_B, "[executeForm]");
 }
 
 // Orthodox Canonical Form
