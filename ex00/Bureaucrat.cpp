@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 14:57:40 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:15:17 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,36 +28,39 @@ void Bureaucrat::setGrade( int grade ) {
 
 void	Bureaucrat::incGrade( void ) {
 	if (_grade - 1 < MAX_GRADE)
-		throw GradeTooHighException(_name, _grade - 1);
+		throw GradeTooHighException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, Log::itoa(_grade - 1)));
 	else
 		_grade--;
 }
 
 void	Bureaucrat::decGrade( void ) {
 	if (_grade + 1 > MIN_GRADE)
-		throw GradeTooLowException(_name, _grade + 1);
+		throw GradeTooLowException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, Log::itoa(_grade + 1)));
 	else
 		_grade++;
 }
 
 // Orthodox Canonical Form
 
-Bureaucrat::Bureaucrat( void ) : _name("none"), _grade(0) {
-	throw GradeTooLowException(_name, _grade);
-}
-
 Bureaucrat::Bureaucrat( const std::string& name, int grade ) : _name(name) {
 	if (grade < 1)
-		throw GradeTooHighException(name, grade);
+		throw GradeTooHighException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, Log::itoa(grade)));
 	else if (grade > 150)
-		throw GradeTooLowException(Log::m(static_cast::string(file), std::string& line, std::string& color,
-			std::string& s1, std::string& s2);
+		throw GradeTooLowException(Log::m(F, Log::itoa(L),
+				static_cast<std::string>(C_R),
+				_name, Log::itoa(grade)));
 	_grade = grade;
 	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 }
 
 Bureaucrat::~Bureaucrat ( void ) {
-	Log::a(F, L, C_R, "[" + _name + "] destructed.");
+	Log::a(F, L, C_B, "[" + _name + "] destructed.");
 }
 
 // Exception handler

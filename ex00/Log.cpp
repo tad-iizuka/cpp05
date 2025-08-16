@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 14:55:05 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:13:09 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,57 @@ std::string Log::ptoa(void* ptr) {
     return std::string(buf);
 }
 
-const std::string &Log::m(std::string &file, std::string &line, std::string &color, std::string &s1, std::string &s2, std::string &s3)
+std::string Log::m(const char *file, std::string line, std::string color,
+	std::string s1, std::string s2, std::string s3, std::string s4)
 {
-	return file + ":" + line + " " + color + s1 + " " + s2 + " " + s3 + C_CLR + "\n";
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str += "<Exception>";
+	str += " [" + s1 + "]";
+	str += " [" + s2 + "]";
+	str += " [" + s3 + "]";
+	str += " [" + s4 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
 }
 
-const std::string &Log::m(std::string &file, std::string &line, std::string &color, std::string &s1, std::string &s2)
+std::string Log::m(const char *file, std::string line, std::string color,
+	std::string s1, std::string s2, std::string s3)
 {
-  return file + ":" + line + " " + color + s1 + " " + s2 + C_CLR + "\n";
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str += "<Exception>";
+	str += " [" + s1 + "]";
+	str += " [" + s2 + "]";
+	str += " [" + s3 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
 }
+
+std::string Log::m(const char *file, std::string line, std::string color,
+	std::string s1, std::string s2)
+{
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str += "<Exception>";
+	str += " [" + s1 + "]";
+	str += " [" + s2 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
+}
+
+std::string Log::m(const char *file, std::string line, std::string color,
+	std::string s1)
+{
+	std::string str;
+	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str += "<Exception>";
+	str += " [" + s1 + "]";
+	str += C_CLR;
+	str += "\n";
+	return str;
+}
+

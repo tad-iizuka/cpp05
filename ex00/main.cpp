@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/10 17:29:02 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:11:36 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,9 @@ void	check( std::string name, int grade )
 		Bureaucrat a( name, grade );
 		std::cout << a << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
+	catch (std::exception& e)
 	{
-		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]", "[" + Log::itoa(grade) + "]");
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]", "[" + Log::itoa(grade) + "]");
+		std::cout << e.what();
 	}
 }
 
@@ -55,13 +51,9 @@ void	checkInc( std::string name, int grade )
 		a.incGrade();
 		std::cout << a << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
+	catch (std::exception& e)
 	{
-		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]", "[" + Log::itoa(grade) + "]");
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]", "[" + Log::itoa(grade) + "]");
+		std::cout << e.what();
 	}
 }
 
@@ -72,12 +64,8 @@ void	checkDec( std::string name, int grade )
 		a.decGrade();
 		std::cout << a << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& e)
+	catch (std::exception& e)
 	{
-		Log::a(F, L, C_R, "GradeTooHighException [" + name + "]", "[" + Log::itoa(grade) + "]");
-	}
-	catch (Bureaucrat::GradeTooLowException& e)
-	{
-		Log::a(F, L, C_R, "GradeTooLowException [" + name + "]", "[" + Log::itoa(grade) + "]");
+		std::cout << e.what();
 	}
 }
