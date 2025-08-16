@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 17:26:09 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 20:20:58 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ std::string Log::ptoa(void* ptr) {
     return std::string(buf);
 }
 
-std::string Log::m(const char *file, std::string line, std::string color,
+std::string Log::m(const char *file, int line, const char* color,
 	std::string s1, std::string s2, std::string s3, std::string s4)
 {
 	std::string str;
-	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
 	str += "Exception#";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
@@ -99,11 +99,11 @@ std::string Log::m(const char *file, std::string line, std::string color,
 	return str;
 }
 
-std::string Log::m(const char *file, std::string line, std::string color,
+std::string Log::m(const char *file, int line, const char* color,
 	std::string s1, std::string s2, std::string s3)
 {
 	std::string str;
-	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
 	str += "Exception";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
@@ -113,11 +113,11 @@ std::string Log::m(const char *file, std::string line, std::string color,
 	return str;
 }
 
-std::string Log::m(const char *file, std::string line, std::string color,
+std::string Log::m(const char *file, int line, const char* color,
 	std::string s1, std::string s2)
 {
 	std::string str;
-	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
 	str += "Exception#";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
@@ -126,11 +126,11 @@ std::string Log::m(const char *file, std::string line, std::string color,
 	return str;
 }
 
-std::string Log::m(const char *file, std::string line, std::string color,
+std::string Log::m(const char *file, int line, const char* color,
 	std::string s1)
 {
 	std::string str;
-	str = static_cast<std::string>(file) + ":" + line + " " + color;
+	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
 	str += "Exceptiona#";
 	str += " [" + s1 + "]";
 	str += C_CLR;
