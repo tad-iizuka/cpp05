@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/14 17:28:54 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/16 20:46:44 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,14 @@ void	AForm::beSigned(const Bureaucrat& executor)
 		return;
 	}
 	if (_sign < executor.getGrade())
-		throw GradeTooLowException(
-			"[" + executor.getName() + "]" + " sign grade " + Log::itoa(executor.getGrade()));
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				executor.getName(), "sign", Log::itoa(executor.getGrade())));
 	else if (_exec < executor.getGrade())
-		throw GradeTooLowException(
-			"[" + executor.getName() + "]" + " exec grade " + Log::itoa(executor.getGrade()));
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				executor.getName(), "exec", Log::itoa(executor.getGrade())));
 	Log::a(F, L, C_G, executor.getName(), "signed", getName());
 	_status = !_status;
 }
-
-// void	AForm::execute(Bureaucrat const & executor) const
-// {
-// 	executor.executeForm(*this);
-// 	Log::a(F, L, C_G, "[execute]");
-// }
 
 // Orthodox Canonical Form
 
@@ -63,39 +57,45 @@ AForm::AForm( const std::string name, int sign, int exec ) :
 	_exec(exec) 
 {
 	if (_sign < MAX_GRADE)
-		throw GradeTooHighException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				_name, "sign", Log::itoa(_sign)));
 	else if (_sign > MIN_GRADE)
-		throw GradeTooLowException("[" + name + "]" + " sign grade " + Log::itoa(_sign));
+		throw GradeTooLowException(Log::m(F, L, C_R,
+				_name, "sign", Log::itoa(_sign)));
 	if (_exec < MAX_GRADE)
-		throw GradeTooHighException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
+		throw GradeTooHighException(Log::m(F, L, C_R,
+				_name, "exec", Log::itoa(_exec)));
 	else if (_exec > MIN_GRADE)
-		throw GradeTooLowException("[" + name + "]" + " exec grade " + Log::itoa(_exec));
+		throw GradeTooLowException(Log::m(F, L, C_R,
+				_name, "exec", Log::itoa(_exec)));
 	_status = false;
 	Log::a(F, L, C_B, "[" + _name + "] constructed.");
 }
 
 AForm::~AForm ( void ) {
-	Log::a(F, L, C_R, "[" + _name + "] destructed.");
+	Log::a(F, L, C_B, "[" + _name + "] destructed.");
 }
 
 // Exception handler
 
-AForm::GradeTooHighException::GradeTooHighException(const std::string& name) : _name(name) {}
+AForm::GradeTooHighException::GradeTooHighException(const std::string& error) :
+	_error(error) {}
 
 AForm::GradeTooHighException::~GradeTooHighException( void ) throw() {}
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return _name.c_str();
+	return _error.c_str();
 }
 
-AForm::GradeTooLowException::GradeTooLowException(const std::string& name) : _name(name) {}
+AForm::GradeTooLowException::GradeTooLowException(const std::string& error) :
+	_error(error) {}
 
 AForm::GradeTooLowException::~GradeTooLowException( void ) throw() {}
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return this->_name.c_str();
+	return _error.c_str();
 }
 
 std::ostream& operator<<( std::ostream& os, const AForm& rhs )
