@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/17 03:58:25 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 15:56:10 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ void	checkForm( std::string name )
 {
 	try {
 		ShrubberyCreationForm a( name );
-		RobotomyRequestForm b( name );
-		PresidentialPardonForm c( name );
 		std::cout << a << std::endl;
+		RobotomyRequestForm b( name );
+		std::cout << b << std::endl;
+		PresidentialPardonForm c( name );
+		std::cout << c << std::endl;
 	}
 	catch (std::exception& e)
 	{
