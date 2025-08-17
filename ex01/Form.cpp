@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:31:03 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 13:06:21 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int Form::getExec( void ) const {
 	return _exec;
 }
 
-bool	Form::getStatus( void )
-{
+bool	Form::getStatus( void ) const {
 	return _status;
 }
 
@@ -104,7 +103,7 @@ std::ostream& operator<<( std::ostream& os, const Form& rhs )
 		<< __FILE__ << ":"
 		<< __LINE__ << " "
 		<< "Form [" << rhs.getName() << "]"
-		<< " status [" << (rhs.getExec() ? "sign in" : "sign out") << "]"
+		<< " status [" << (rhs.getStatus() ? "sign in" : "sign out") << "]"
 		<< " sign [" << rhs.getSign() << "]"
 		<< " exec [" << rhs.getExec() << "]";
 	return os;
