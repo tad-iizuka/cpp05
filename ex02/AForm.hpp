@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:26 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:40:16 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/17 14:13:43 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class AForm
 	public:
 
 		const std::string getName( void ) const;
-		bool							getStatus( void );
+		bool							getStatus( void ) const;
 		int								getSign( void ) const;
 		int								getExec( void ) const;
 		void							beSigned(const Bureaucrat& executor);
