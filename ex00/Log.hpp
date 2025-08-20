@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:20:17 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/20 16:13:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iomanip>
 #include <sstream>
 #include <cstdio>
+
+typedef unsigned long uintptr_t;
 
 // Font color
 #define C_CLR "\033[0m"
@@ -52,8 +54,7 @@ class Log
 	public:
 
 		static std::string itoa(int num);
-		static std::string ptoa(void* ptr);
-
+		static std::string ptoa(void* ptr);	
 		static void	a(const char* file, int line, const char* color, std::string s1,
 			std::string s2, std::string s3, std::string s4, std::string s5);	
 		static void	a(const char* file, int line, const char* color, std::string s1,
@@ -63,7 +64,6 @@ class Log
 		static void	a(const char* file, int line, const char* color, std::string s1,
 			std::string s2);
 		static void	a(const char* file, int line, const char* color, std::string s1);
-	
 		static std::string	m(const char* file, int line, const char* color,
 			std::string s1, std::string s2, std::string s3, std::string s4);
 		static std::string	m(const char* file, int line, const char* color,

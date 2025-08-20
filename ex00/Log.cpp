@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:20:58 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/20 16:16:25 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,22 @@ void	Log::a(const char *file, int line, const char *color, std::string s1) {
 		<< C_CLR << std::endl;
 }
 
-std::string Log::itoa(int num)
-{
+std::string Log::itoa(int num) {
 	std::stringstream ss;
+
 	ss << num;
 	return ss.str();
 }
 
 std::string Log::ptoa(void* ptr) {
-    char buf[32];
-    sprintf(buf, "0x%lx", (unsigned long)ptr);
-    return std::string(buf);
+	std::stringstream ss;
+
+	ss << "0x" 
+			<< std::hex 
+			<< std::setw(sizeof(void*) * 2) 
+			<< std::setfill('0') 
+			<< reinterpret_cast<uintptr_t>(ptr);
+	return ss.str();
 }
 
 std::string Log::m(const char *file, int line, const char* color,
@@ -104,7 +109,7 @@ std::string Log::m(const char *file, int line, const char* color,
 {
 	std::string str;
 	str = static_cast<std::string>(file) + ":" + Log::itoa(line) + " " + color;
-	str += "Exception";
+	str += "Exception#";
 	str += " [" + s1 + "]";
 	str += " [" + s2 + "]";
 	str += " [" + s3 + "]";

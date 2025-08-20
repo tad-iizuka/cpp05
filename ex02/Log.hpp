@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:26:52 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/20 16:13:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iomanip>
 #include <sstream>
 #include <cstdio>
+
+typedef unsigned long uintptr_t;
 
 // Font color
 #define C_CLR "\033[0m"
