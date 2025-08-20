@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/20 16:16:25 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/20 20:32:32 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ std::string Log::ptoa(void* ptr) {
 			<< std::hex 
 			<< std::setw(sizeof(void*) * 2) 
 			<< std::setfill('0') 
-			<< reinterpret_cast<uintptr_t>(ptr);
+			<< reinterpret_cast<unsigned long>(ptr);
 	return ss.str();
 }
 
