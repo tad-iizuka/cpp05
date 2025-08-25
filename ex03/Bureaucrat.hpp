@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:25:23 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/16 20:36:57 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 17:11:50 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class Bureaucrat
 		void							signForm(AForm& form);
 		void							executeForm(const AForm& form) const;
 
-		Bureaucrat( void );
 		Bureaucrat( const std::string& name, int grade );
 		~Bureaucrat ( void );
 
@@ -64,6 +63,7 @@ class Bureaucrat
 		static const int MAX_GRADE = 1;
 		static const int MIN_GRADE = 150;
 
+		Bureaucrat( void );															// can't use
 		Bureaucrat( const Bureaucrat& src); 						// can't use
 		Bureaucrat& operator=( const Bureaucrat& rhs );	// can't use
 };
