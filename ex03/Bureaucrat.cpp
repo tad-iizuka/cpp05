@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:27:46 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/17 03:31:58 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 18:03:15 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	Bureaucrat::executeForm(const AForm& form) const
 // Orthodox Canonical Form
 
 Bureaucrat::Bureaucrat( const std::string& name, int grade ) : _name(name) {
-	if (grade < 1)
+	if (grade < MAX_GRADE)
 		throw GradeTooHighException(Log::m(F, L, C_R,
 				_name, Log::itoa(grade)));
-	else if (grade > 150)
+	else if (grade > MIN_GRADE)
 		throw GradeTooLowException(Log::m(F, L, C_R,
 				_name, Log::itoa(grade)));
 	_grade = grade;
