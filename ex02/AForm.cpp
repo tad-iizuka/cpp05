@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:11:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/17 14:14:04 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 17:39:13 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,26 @@ bool	AForm::getStatus( void ) const {
 	return _status;
 }
 
-void	AForm::beSigned(const Bureaucrat& executor)
+void	AForm::beSigned(const Bureaucrat& signer)
 {
 	if (_status)
 	{
-		throw GradeTooHighException(Log::m(F, L, C_R,
-				executor.getName(), getName(), "couldn't sign because of already signed in"));
+		Log::a(F, L, C_R, signer.getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
-	if (_sign < executor.getGrade())
-		throw GradeTooHighException(Log::m(F, L, C_R,
-				executor.getName(), "sign", Log::itoa(executor.getGrade())));
-	Log::a(F, L, C_G, executor.getName(), "signed", getName());
-	_status = !_status;
+	if (_sign < signer.getGrade())
+		throw GradeTooLowException(Log::m(F, L, C_R,
+				signer.getName(), "sign", Log::itoa(signer.getGrade())));
+	Log::a(F, L, C_G, signer.getName(), "signed", getName());
+	_status = true;
 }
 
 void	AForm::execute(const Bureaucrat& executor) const {
 	if (_exec < executor.getGrade())
-		throw GradeTooHighException(Log::m(F, L, C_R,
+		throw GradeTooLowException(Log::m(F, L, C_R,
 				executor.getName(), "exec", Log::itoa(executor.getGrade())));
 	if (!_status)
-	{
-		throw GradeTooHighException(Log::m(F, L, C_R,
-				executor.getName(), Log::itoa(executor.getGrade()), "couldn't exec because of NOT signed in"));
-		return;
-	}
+		Log::a(F, L, C_R, executor.getName(), Log::itoa(executor.getGrade()), "couldn't exec because of NOT signed in.");
 }
 
 // Orthodox Canonical Form

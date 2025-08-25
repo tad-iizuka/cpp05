@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/15 16:40:33 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 17:31:07 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 int main( void )
 {
 	const char* tasks[] = {
-		"shrubbery create",
+		"shrubbery creation",
 		"robotomy request",
-		"pardon request",
+		"presidential pardon",
 		"unknown request",
 		NULL
 	};

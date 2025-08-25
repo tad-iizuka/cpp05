@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 02:24:06 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/17 15:56:10 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 17:51:42 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	signInShrubberyCreationForm( std::string name, std::string form, int grade 
 	try {
 		Bureaucrat bu(name, grade);
 		ShrubberyCreationForm a( form );
-		a.beSigned(bu);
-		a.execute(bu);
+		bu.signForm(a);
+		bu.executeForm(a);
 	}
 	catch (std::exception& e)
 	{
@@ -73,8 +73,8 @@ void	signInRobotomyRequestForm( std::string name, std::string form, int grade )
 	try {
 		Bureaucrat bu(name, grade);
 		RobotomyRequestForm b( form );
-		b.beSigned(bu);
-		b.execute(bu);
+		bu.signForm(b);
+		bu.executeForm(b);
 	}
 	catch (std::exception& e)
 	{
@@ -87,8 +87,8 @@ void	signInPresidentialPardonForm( std::string name, std::string form, int grade
 	try {
 		Bureaucrat bu(name, grade);
 		PresidentialPardonForm c( form );
-		c.beSigned(bu);
-		c.execute(bu);
+		bu.signForm(c);
+		bu.executeForm(c);
 	}
 	catch (std::exception& e)
 	{

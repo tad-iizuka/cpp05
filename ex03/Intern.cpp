@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 20:48:25 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/15 06:53:27 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 17:30:29 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ AForm*	genPresidentialPardonForm(const std::string& target) {
 AForm*	Intern::makeForm(const std::string& form, const std::string& target) {
 
 	Forms table[] = {
-		{ "shrubbery create",	&genShrubberyCreationForm },
+		{ "shrubbery creation",	&genShrubberyCreationForm },
 		{ "robotomy request",	&genRobotomyRequestForm },
-		{ "pardon request",		&genPresidentialPardonForm },
+		{ "presidential pardon",		&genPresidentialPardonForm },
 		{ NULL, 							NULL }
 	};
 

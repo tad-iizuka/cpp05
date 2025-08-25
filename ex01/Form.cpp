@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:27:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/08/17 13:06:21 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/25 17:48:20 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,18 @@ bool	Form::getStatus( void ) const {
 	return _status;
 }
 
-void	Form::beSigned(const Bureaucrat& param)
+void	Form::beSigned(const Bureaucrat& signer)
 {
 	if (_status)
 	{
-		Log::a(F, L, C_R, param.getName(), "couldn't sign", getName(), "because of already signed in.");
+		Log::a(F, L, C_R, signer.getName(), "couldn't sign", getName(), "because of already signed in.");
 		return;
 	}
-	if (_sign < param.getGrade())
-		throw GradeTooHighException(Log::m(F, L, C_R,
-				param.getName(), "sign", Log::itoa(param.getGrade())));
-	else if (_exec > param.getGrade())
-		throw GradeTooHighException(Log::m(F, L, C_R,
-				param.getName(), "exec", Log::itoa(param.getGrade())));
-	Log::a(F, L, C_G, param.getName(), "signed", getName());
-	_status = !_status;
+	if (_sign < signer.getGrade())
+		throw GradeTooLowException(Log::m(F, L, C_R,
+				signer.getName(), "sign", Log::itoa(signer.getGrade())));
+	Log::a(F, L, C_G, signer.getName(), "signed", getName());
+	_status = true;
 }
 
 // Orthodox Canonical Form
